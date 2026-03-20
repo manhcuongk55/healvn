@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Wellness Advisor — HealVN</title>
+  <meta name="description" content="Hana — AI Wellness Advisor cá nhân hóa hành trình chữa lành của bạn. Chat ngay để tìm retreat phù hợp tại Việt Nam."/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>"/>
+  <style>
+    .full-chat {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+      min-height: calc(100vh - 200px);
+    }
+    .chat-sidebar { display: flex; flex-direction: column; gap: 16px; }
+    .sidebar-card { padding: 20px; border-radius: var(--radius-md); background: var(--clr-surface); border: 1px solid var(--clr-border); }
+    .full-ai-chat { display: flex; flex-direction: column; border-radius: var(--radius-lg); background: var(--clr-surface); border: 1px solid var(--clr-border); overflow: hidden; min-height: 600px; }
+    .full-messages { flex: 1; overflow-y: auto; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+    .quick-btn { display: block; width: 100%; text-align: left; padding: 10px 14px; background: var(--clr-surface2); border: 1px solid var(--clr-border); border-radius: 10px; color: var(--clr-muted); font-size: 0.83rem; cursor: pointer; transition: var(--transition); margin-bottom: 6px; font-family: inherit; }
+    .quick-btn:hover { border-color: var(--clr-jade); color: var(--clr-jade); background: rgba(62,207,142,0.06); }
+    .wellness-score { text-align: center; padding: 20px 0; }
+    .score-circle { width: 100px; height: 100px; border-radius: 50%; background: conic-gradient(var(--clr-jade) 0% 74%, var(--clr-surface2) 74% 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; position: relative; }
+    .score-inner { width: 76px; height: 76px; border-radius: 50%; background: var(--clr-surface); display: flex; align-items: center; justify-content: center; flex-direction: column; }
+    .score-num { font-size: 1.4rem; font-weight: 800; color: var(--clr-jade); }
+    .score-lbl { font-size: 0.65rem; color: var(--clr-muted); }
+    @media (max-width: 768px) {
+      .full-chat { grid-template-columns: 1fr; }
+      .chat-sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="bg-orbs"><span></span><span></span><span></span></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Heal<span>VN</span></a>
+  <div class="nav-links">
+    <a href="../index.html">Trang Chủ</a>
+    <a href="retreats.html">Retreats</a>
+    <a href="ai-advisor.html" style="color:var(--clr-jade)">AI Advisor</a>
+    <a href="about.html">Về Chúng Tôi</a>
+  </div>
+  <a href="retreats.html" class="nav-cta">Retreats 🗺️</a>
+  <button class="hamburger" id="hamburger">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html">Trang Chủ</a>
+  <a href="retreats.html">Retreats</a>
+  <a href="ai-advisor.html">AI Advisor</a>
+  <a href="about.html">Về Chúng Tôi</a>
+</div>
+
+<div class="page-hero" style="padding-bottom:40px">
+  <div class="container fade-up">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+      <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--clr-jade),#2dd4bf);display:flex;align-items:center;justify-content:center;font-size:1.8rem">🌿</div>
+      <div>
+        <h1 style="font-size:1.8rem;font-weight:800;margin-bottom:2px">Hana <span class="grad-jade">AI Wellness Advisor</span></h1>
+        <div style="font-size:0.85rem;color:var(--clr-jade)">● Online · Trả lời trong vài giây</div>
+      </div>
+    </div>
+    <p style="color:var(--clr-muted);max-width:560px">AI phân tích sâu nhu cầu wellness của bạn và tạo hành trình chữa lành cá nhân hóa hoàn toàn.</p>
+  </div>
+</div>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="full-chat fade-up">
+
+      <!-- SIDEBAR -->
+      <div class="chat-sidebar">
+        <!-- Wellness score -->
+        <div class="sidebar-card">
+          <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--clr-jade);margin-bottom:16px">🧬 Wellness Score</div>
+          <div class="wellness-score">
+            <div class="score-circle">
+              <div class="score-inner">
+                <div class="score-num">74</div>
+                <div class="score-lbl">/100</div>
+              </div>
+            </div>
+            <div style="font-weight:700;margin-bottom:4px">Moderate Stress</div>
+            <div style="font-size:0.8rem;color:var(--clr-muted)">Dựa trên cuộc trò chuyện</div>
+          </div>
+          <div style="margin-top:12px">
+            <div class="progress-wrap">
+              <div class="progress-label"><span>Thể chất</span><span>72%</span></div>
+              <div class="progress-bar"><div class="progress-fill" data-width="72%" style="width:0%"></div></div>
+            </div>
+            <div class="progress-wrap">
+              <div class="progress-label"><span>Tâm lý</span><span>68%</span></div>
+              <div class="progress-bar"><div class="progress-fill" data-width="68%" style="width:0%;background:linear-gradient(90deg,var(--clr-gold),var(--clr-earth))"></div></div>
+            </div>
+            <div class="progress-wrap">
+              <div class="progress-label"><span>Xã hội</span><span>85%</span></div>
+              <div class="progress-bar"><div class="progress-fill" data-width="85%" style="width:0%;background:linear-gradient(90deg,var(--clr-sky),#5a9fd4)"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick prompts -->
+        <div class="sidebar-card">
+          <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--clr-jade);margin-bottom:14px">💬 Hỏi Nhanh</div>
+          <button class="quick-btn" onclick="quickAsk(this)">🌴 Retreat biển 5 ngày budget $1000</button>
+          <button class="quick-btn" onclick="quickAsk(this)">🏔️ Trek núi Sapa phù hợp người mới</button>
+          <button class="quick-btn" onclick="quickAsk(this)">🌿 Detox 7 ngày gần TP.HCM</button>
+          <button class="quick-btn" onclick="quickAsk(this)">💆 Spa nghỉ dưỡng cặp đôi</button>
+          <button class="quick-btn" onclick="quickAsk(this)">🧘 Yoga retreat dành cho người mới</button>
+          <button class="quick-btn" onclick="quickAsk(this)">💰 Retreat tốt nhất dưới $500</button>
+        </div>
+
+        <!-- Top matches -->
+        <div class="sidebar-card">
+          <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--clr-jade);margin-bottom:14px">✨ AI Đề Xuất</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;gap:10px;align-items:center;cursor:pointer" onclick="location.href='retreats.html'">
+              <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#0d3b2e,#1a6b4a);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">🌊</div>
+              <div><div style="font-size:0.83rem;font-weight:700">Fusion Resort PQ</div><div style="font-size:0.73rem;color:var(--clr-jade)">96% match · $2,100</div></div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;cursor:pointer" onclick="location.href='retreats.html'">
+              <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#1a2a10,#2d4a20);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">🏔️</div>
+              <div><div style="font-size:0.83rem;font-weight:700">Topas Ecolodge</div><div style="font-size:0.73rem;color:var(--clr-gold)">89% match · $890</div></div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;cursor:pointer" onclick="location.href='retreats.html'">
+              <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#1a2b1a,#3a5a32);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">🌿</div>
+              <div><div style="font-size:0.83rem;font-weight:700">Đà Lạt Green Detox</div><div style="font-size:0.73rem;color:var(--clr-sky)">84% match · $780</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FULL CHAT -->
+      <div class="full-ai-chat">
+        <div class="ai-chat-header">
+          <div class="ai-avatar">🌿</div>
+          <div>
+            <div style="font-weight:700">Hana — AI Wellness Advisor</div>
+            <div class="ai-status">● Đang phân tích nhu cầu của bạn...</div>
+          </div>
+          <div style="margin-left:auto;display:flex;gap:8px">
+            <span class="badge badge-jade" style="font-size:0.68rem">🤖 AI</span>
+            <span class="badge badge-gold" style="font-size:0.68rem">⚡ Fast</span>
+          </div>
+        </div>
+
+        <div class="full-messages" id="chatMessages">
+          <div class="msg bot">
+            <div class="ai-avatar" style="width:36px;height:36px;font-size:1rem">🌿</div>
+            <div class="msg-bubble" style="max-width:500px">
+              Xin chào! Mình là <strong>Hana</strong> 🌿 — AI Wellness Advisor của HealVN.<br/><br/>
+              Mình đã phân tích 1,247 retreat tại Việt Nam và sẵn sàng tạo <strong>hành trình chữa lành cá nhân hóa</strong> cho bạn.<br/><br/>
+              Để bắt đầu, bạn có thể cho mình biết: <em>Bạn đang cảm thấy thế nào? Bạn muốn trốn thoát khỏi điều gì?</em> 💚
+            </div>
+          </div>
+          <div class="msg bot">
+            <div class="ai-avatar" style="width:36px;height:36px;font-size:1rem">🌿</div>
+            <div class="msg-bubble" style="max-width:500px">
+              Hoặc thử ngay các gợi ý nhanh bên trái — ví dụ hỏi về <strong>Phú Quốc, Hà Giang, Đà Lạt</strong>, hoặc ngân sách của bạn! 🗺️
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:16px 20px;border-top:1px solid var(--clr-border)">
+          <div class="ai-input-row" style="padding:0">
+            <input class="ai-input" id="chatInput" placeholder="Nhập câu hỏi... (vd: tôi bị stress, cần nghỉ ngơi 5 ngày tại biển)"/>
+            <button class="ai-send" id="sendBtn" style="width:44px;height:44px">➤</button>
+          </div>
+          <div style="font-size:0.72rem;color:var(--clr-faint);margin-top:8px;text-align:center">
+            AI Hana · Powered by HealVN Intelligence · 1,247 retreats verified
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="margin-top:60px">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:1px solid var(--clr-border);padding-top:24px">
+      <div>© 2026 HealVN · <a href="../index.html" style="color:var(--clr-jade)">Trang Chủ</a></div>
+      <div style="color:var(--clr-muted)">AI Hana v2.0 · 1,247 retreats 🌿</div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+function quickAsk(btn) {
+  const input = document.getElementById('chatInput');
+  input.value = btn.textContent.trim();
+  document.getElementById('sendBtn').click();
+  btn.style.borderColor = 'var(--clr-jade)';
+  setTimeout(() => { btn.style.borderColor = ''; }, 2000);
+}
+setTimeout(() => animateProgressBars(), 600);
+</script>
+</body>
+</html>

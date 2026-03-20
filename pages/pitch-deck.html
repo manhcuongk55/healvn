@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HealVN — Investor Pitch Deck</title>
+  <meta name="description" content="HealVN Pitch Deck — Vietnam's first AI-powered authentic wellness platform. See real havens, feel real nature."/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --slide-h: 100vh;
+      --jade: #3ecf8e;
+      --gold: #e8c97a;
+      --sky: #7ab8e8;
+      --rose: #e87a9f;
+      --bg: #0a0f0a;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --muted: rgba(255,255,255,0.5);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+    /* NAV */
+    .deck-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 32px;
+      background: rgba(10,15,10,0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .deck-nav .logo { font-size: 1.4rem; font-weight: 900; letter-spacing: -1px; }
+    .deck-nav .logo span { color: var(--jade); font-style: italic; }
+    .deck-nav .slides-count { font-size: 0.8rem; color: var(--muted); }
+    .deck-nav .nav-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .deck-nav .nav-pill {
+      font-size: 0.7rem; padding: 4px 12px; border-radius: 20px;
+      border: 1px solid var(--border); color: var(--muted);
+      cursor: pointer; transition: all 0.2s; text-decoration: none;
+    }
+    .deck-nav .nav-pill:hover { border-color: var(--jade); color: var(--jade); }
+
+    /* SLIDES */
+    .slide {
+      min-height: var(--slide-h);
+      display: flex; align-items: center; justify-content: center;
+      padding: 120px 48px 80px;
+      position: relative; overflow: hidden;
+    }
+    .slide-inner { max-width: 1100px; width: 100%; }
+
+    /* BG ORBS */
+    .orb {
+      position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0;
+    }
+
+    /* SLIDE COUNTER */
+    .slide-num {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 3px;
+      color: var(--muted); text-transform: uppercase; margin-bottom: 16px;
+    }
+
+    /* TYPOGRAPHY */
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(62,207,142,0.1); border: 1px solid rgba(62,207,142,0.25);
+      padding: 5px 14px; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      color: var(--jade); text-transform: uppercase; margin-bottom: 24px;
+    }
+    h1.hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1.05; font-weight: 700;
+    }
+    h2.slide-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.1; margin-bottom: 24px;
+    }
+    .grad-jade { background: linear-gradient(135deg, #3ecf8e, #2dd4bf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .grad-gold { background: linear-gradient(135deg, #e8c97a, #f5a623); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .lead { font-size: 1.15rem; color: var(--muted); line-height: 1.7; max-width: 640px; }
+    .lead strong { color: rgba(255,255,255,0.9); }
+
+    /* GLASS CARD */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      backdrop-filter: blur(12px);
+    }
+    .card-icon { font-size: 2rem; margin-bottom: 12px; }
+    .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .card-body { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* GRID */
+    .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+    /* STAT BOX */
+    .stat-box { text-align: center; }
+    .stat-num { font-size: 2.8rem; font-weight: 900; line-height: 1; }
+    .stat-lbl { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+    /* METRIC ROW */
+    .metric-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+    }
+    .metric-row:last-child { border-bottom: none; }
+    .metric-label { font-size: 0.9rem; color: var(--muted); }
+    .metric-value { font-size: 0.9rem; font-weight: 700; }
+
+    /* TIMELINE */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-item { display: flex; gap: 20px; padding-bottom: 28px; position: relative; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; margin-top: 2px;
+    }
+    .tl-item::before {
+      content: ''; position: absolute; left: 17px; top: 36px; bottom: 0;
+      width: 2px; background: var(--border);
+    }
+    .tl-item:last-child::before { display: none; }
+    .tl-body {}
+    .tl-phase { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
+    .tl-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .tl-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
+
+    /* BADGE */
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 3px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700;
+    }
+    .badge-jade { background: rgba(62,207,142,0.12); border: 1px solid rgba(62,207,142,0.3); color: var(--jade); }
+    .badge-gold { background: rgba(232,201,122,0.12); border: 1px solid rgba(232,201,122,0.3); color: var(--gold); }
+    .badge-rose { background: rgba(232,122,159,0.12); border: 1px solid rgba(232,122,159,0.3); color: var(--rose); }
+
+    /* PROGRESS BAR */
+    .progress-row { margin-bottom: 16px; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 6px; }
+    .progress-label span:last-child { color: var(--jade); font-weight: 700; }
+    .progress-track { height: 6px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #3ecf8e, #2dd4bf); }
+
+    /* CTA SLIDE */
+    .cta-slide {
+      background: radial-gradient(ellipse at center, rgba(62,207,142,0.08) 0%, transparent 70%);
+      text-align: center;
+    }
+    .cta-slide .deck-contact {
+      margin-top: 40px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-deck {
+      padding: 14px 36px; border-radius: 40px; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-deck-primary { background: var(--jade); color: #000; }
+    .btn-deck-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(62,207,142,0.35); }
+    .btn-deck-outline { border: 1px solid rgba(255,255,255,0.2); color: #fff; }
+    .btn-deck-outline:hover { border-color: var(--jade); color: var(--jade); }
+
+    /* NATURE IMG PLACEHOLDERS */
+    .nature-panel {
+      border-radius: 16px; overflow: hidden;
+      background: linear-gradient(160deg, #0a1f10, #1a4a2a);
+      display: flex; align-items: center; justify-content: center;
+      min-height: 280px; position: relative;
+      border: 1px solid rgba(62,207,142,0.15);
+    }
+    .nature-panel .nature-emoji { font-size: 5rem; }
+    .nature-panel .nature-label {
+      position: absolute; bottom: 16px; left: 16px;
+      font-size: 0.75rem; color: rgba(255,255,255,0.7);
+      background: rgba(0,0,0,0.4); padding: 4px 10px; border-radius: 8px;
+    }
+
+    /* DIVIDER */
+    .slide-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--jade), var(--sky));
+      border-radius: 2px; margin: 24px 0;
+    }
+
+    /* TABLE */
+    .deck-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .deck-table th { text-align: left; padding: 10px 14px; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .deck-table td { padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .deck-table tr:last-child td { border-bottom: none; }
+    .deck-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* CHANNEL BADGE */
+    .channel-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+      padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;
+      margin: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .g2, .g3, .g4 { grid-template-columns: 1fr; }
+      .slide { padding: 100px 24px 60px; }
+      .deck-nav .nav-pills { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="deck-nav">
+  <div class="logo">Heal<span>VN</span></div>
+  <div class="nav-pills">
+    <a class="nav-pill" href="#slide-1">Intro</a>
+    <a class="nav-pill" href="#slide-2">Problem</a>
+    <a class="nav-pill" href="#slide-3">Solution</a>
+    <a class="nav-pill" href="#slide-4">Nature</a>
+    <a class="nav-pill" href="#slide-5">AI</a>
+    <a class="nav-pill" href="#slide-6">Market</a>
+    <a class="nav-pill" href="#slide-7">Revenue</a>
+    <a class="nav-pill" href="#slide-8">GTM</a>
+    <a class="nav-pill" href="#slide-9">Roadmap</a>
+    <a class="nav-pill" href="#slide-10">Ask</a>
+  </div>
+  <div class="slides-count">10 Slides</div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 1 — HERO
+═══════════════════════════════════════════ -->
+<section class="slide" id="slide-1" style="background: radial-gradient(ellipse at 30% 50%, rgba(10,60,30,0.6) 0%, transparent 70%), radial-gradient(ellipse at 80% 20%, rgba(5,30,50,0.4) 0%, transparent 60%);">
+  <div class="orb" style="width:500px;height:500px;top:-100px;left:-100px;background:rgba(62,207,142,0.06);"></div>
+  <div class="orb" style="width:400px;height:400px;bottom:-50px;right:-100px;background:rgba(122,184,232,0.06);"></div>
+
+  <div class="slide-inner" style="position:relative;z-index:1;">
+    <div style="max-width:760px;">
+      <div class="eyebrow">🌿 Investor Pitch · 2025</div>
+      <h1 class="hero-title">
+        See Real Vietnam.<br/>
+        Feel Real <span class="grad-jade">Nature.</span>
+      </h1>
+      <div class="slide-divider"></div>
+      <p class="lead" style="margin-bottom:40px;">
+        HealVN is Vietnam's first AI-powered <strong>authentic wellness platform</strong> — connecting the world to hidden havens, untouched nature, and 4,000 years of healing tradition.
+        <br/><br/>Not hotel listings. <strong>Real sanctuaries.</strong> Verified. Bookable in 60 seconds.
+      </p>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;">
+        <div class="stat-box">
+          <div class="stat-num grad-jade">1,247</div>
+          <div class="stat-lbl">Verified Retreats</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num grad-gold">63</div>
+          <div class="stat-lbl">Provinces</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">$919B</div>
+          <div class="stat-lbl">Global Wellness Market</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num grad-jade">$70B</div>
+          <div class="stat-lbl">VN Tourism 2030</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 2 — PROBLEM
+═══════════════════════════════════════════ -->
+<section class="slide" id="slide-2">
+  <div class="slide-inner">
+    <div class="slide-num">02 — The Problem</div>
+    <h2 class="slide-title">Vietnam Has <span class="grad-jade">Everything.</span><br/>Travelers Find <span style="text-decoration:line-through;opacity:0.4;">Nothing Real.</span></h2>
+    <p class="lead" style="margin-bottom:40px;">80% of authentic Vietnamese wellness havens have zero online presence. The rest are buried under fake reviews and generic resort listings.</p>
+
+    <div class="g3">
+      <div class="card">
+        <div class="card-icon">🙈</div>
+        <div class="card-title">Hidden Gems Stay Hidden</div>
+        <div class="card-body">The grandmother herbalist in Hội An, the cliff-side meditation spot in Hà Giang — undiscoverable online. No platform, no photos, no bookings.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚠️</div>
+        <div class="card-title">Rampant Fake Listings</div>
+        <div class="card-body">1,200+ retreats listed across OTAs. Only ~200 are truly verified. Phantom photos. Fake reviews. Foreigners get scammed. Trust collapses.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧩</div>
+        <div class="card-title">Disconnected Journey</div>
+        <div class="card-body">Book retreat one place, find a healer another, plan organic food separately. No single platform understands wellness as a full lifestyle journey.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px;display:flex;gap:40px;align-items:center;flex-wrap:wrap;">
+      <div style="flex:1;min-width:200px;">
+        <div style="font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Market gap</div>
+        <div style="font-size:1.8rem;font-weight:900;">Vietnam vs Thailand</div>
+        <div style="color:var(--muted);font-size:0.85rem;margin-top:4px;">Tourists spend 3–5× less per trip than in Thailand — massive untapped value.</div>
+      </div>
+      <div style="flex:2;min-width:280px;">
+        <div class="progress-row"><div class="progress-label"><span>Authentic retreats discoverable online</span><span>18%</span></div><div class="progress-track"><div class="progress-fill" style="width:18%"></div></div></div>
+        <div class="progress-row"><div class="progress-label"><span>Traveler satisfaction with current platforms</span><span>31%</span></div><div class="progress-track"><div class="progress-fill" style="width:31%"></div></div></div>
+        <div class="progress-row"><div class="progress-label"><span>Wellness market still untapped in VN</span><span>76%</span></div><div class="progress-track"><div class="progress-fill" style="width:76%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 3 — SOLUTION
+═══════════════════════════════════════════ -->
+<section class="slide" id="slide-3" style="background: rgba(62,207,142,0.02);">
+  <div class="slide-inner">
+    <div class="slide-num">03 — The Solution</div>
+    <h2 class="slide-title">The Only Platform That Shows<br/><span class="grad-jade">Real Vietnam</span></h2>
+
+    <div class="g3" style="margin-bottom:32px;">
+      <div class="card" style="border-color:rgba(62,207,142,0.2);background:rgba(62,207,142,0.04);">
+        <div class="card-icon">🎥</div>
+        <div class="card-title">Authentic Video Discovery</div>
+        <div class="card-body">TikTok-style feed of <em>real</em> guest videos — no marketing material. Unfiltered nature, unscripted sessions, honest reviews from verified bookers.</div>
+        <div style="margin-top:12px;"><span class="badge badge-jade">UGC-first</span> <span class="badge badge-jade">No stock photos</span></div>
+      </div>
+      <div class="card" style="border-color:rgba(122,184,232,0.2);background:rgba(122,184,232,0.04);">
+        <div class="card-icon">🤖</div>
+        <div class="card-title">AI Hana — Wellness Navigator</div>
+        <div class="card-body">Not a search engine — a personal wellness navigator. Hana assesses your stress, goals, and lifestyle to build a full nature journey, day by day.</div>
+        <div style="margin-top:12px;"><span class="badge badge-gold">Personalized</span> <span class="badge badge-gold">Multi-channel</span></div>
+      </div>
+      <div class="card" style="border-color:rgba(232,201,122,0.2);background:rgba(232,201,122,0.04);">
+        <div class="card-icon">✅</div>
+        <div class="card-title">7-Layer Trust Verification</div>
+        <div class="card-body">Every retreat physically inspected. Legal check, photo audit, GPS verification, pricing transparency, and ongoing real-time monitoring.</div>
+        <div style="margin-top:12px;"><span class="badge badge-rose">Zero fake listings</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:32px;background:linear-gradient(135deg, rgba(62,207,142,0.05), rgba(45,212,191,0.03));border-color:rgba(62,207,142,0.15);">
+      <div style="text-align:center;margin-bottom:24px;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Our Moat</div>
+      <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;text-align:center;">
+        <div><div style="font-size:1.5rem;font-weight:900;color:var(--jade)">Real Verification</div><div style="font-size:0.8rem;color:var(--muted);margin-top:4px">Infrastructure</div></div>
+        <div style="color:var(--muted);display:flex;align-items:center">×</div>
+        <div><div style="font-size:1.5rem;font-weight:900;color:var(--sky)">AI Personalization</div><div style="font-size:0.8rem;color:var(--muted);margin-top:4px">Data moat</div></div>
+        <div style="color:var(--muted);display:flex;align-items:center">×</div>
+        <div><div style="font-size:1.5rem;font-weight:900;color:var(--gold)">VN-Native Content</div><div style="font-size:0.8rem;color:var(--muted);margin-top:4px">Network effects</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 4 — NATURE & LIFESTYLE
+═══════════════════════════════════════════ -->
+<section class="slide" id="slide-4">
+  <div class="slide-inner">
+    <div class="slide-num">04 — The Nature</div>
+    <h2 class="slide-title">The Havens We <span class="grad-gold">Surface</span></h2>
+    <p class="lead" style="margin-bottom:32px;">Vietnam is one of the last untouched wellness destinations on Earth. We surface experiences you'd only know if you lived there.</p>
+
+    <div class="g4">
+      <div class="nature-panel">
+        <div class="nature-emoji">🌊</div>
+        <div class="nature-label">📍 Coastal Havens</div>
+      </div>
+      <div class="nature-panel" style="background:linear-gradient(160deg,#0f1a08,#1a3a10);">
+        <div class="nature-emoji">🏔️</div>
+        <div class="nature-label">📍 Highland Sanctuaries</div>
+      </div>
+      <div class="nature-panel" style="background:linear-gradient(160deg,#1a0f0a,#3a1a0a);">
+        <div class="nature-emoji">🏮</div>
+        <div class="nature-label">📍 Cultural Healing</div>
+      </div>
+      <div class="nature-panel" style="background:linear-gradient(160deg,#090f1a,#0a1f3a);">
+        <div class="nature-emoji">🌿</div>
+        <div class="nature-label">📍 Living Lifestyle</div>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-top:24px;">
+      <div class="card">
+        <div style="font-weight:800;margin-bottom:12px;">What "Real" Means</div>
+        <div class="metric-row"><span class="metric-label">Photos</span><span class="metric-value" style="color:var(--jade);">Shot by actual guests on arrival</span></div>
+        <div class="metric-row"><span class="metric-label">Location</span><span class="metric-value" style="color:var(--jade);">GPS-verified, not "Phú Quốc area"</span></div>
+        <div class="metric-row"><span class="metric-label">Reviews</span><span class="metric-value" style="color:var(--jade);">Only from confirmed, paid bookings</span></div>
+        <div class="metric-row"><span class="metric-label">Pricing</span><span class="metric-value" style="color:var(--jade);">Transparent, no hidden fees</span></div>
+        <div class="metric-row"><span class="metric-label">Healers</span><span class="metric-value" style="color:var(--jade);">Verified credentials + certifications</span></div>
+      </div>
+      <div class="card">
+        <div style="font-weight:800;margin-bottom:12px;">Retreat Categories</div>
+        <div class="metric-row"><span class="metric-label">🌊 Coastal / Island</span><span class="metric-value">312 retreats</span></div>
+        <div class="metric-row"><span class="metric-label">🏔️ Highland / Forest</span><span class="metric-value">284 retreats</span></div>
+        <div class="metric-row"><span class="metric-label">🏮 Cultural / Heritage</span><span class="metric-value">198 retreats</span></div>
+        <div class="metric-row"><span class="metric-label">🧘 Yoga / Meditation</span><span class="metric-value">241 retreats</span></div>
+        <div class="metric-row"><span class="metric-label">🌿 Detox / Organic</span><span class="metric-value">212 retreats</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 5 — AI HANA + OPENCLAW
+═══════════════════════════════════════════ -->
+<section class="slide" id="slide-5" style="background:rgba(122,184,232,0.02);">
+  <div class="slide-inner">
+    <div class="slide-num">05 — AI Technology</div>
+    <h2 class="slide-title">Meet <span class="grad-jade">Hana</span> — Your Wellness Navigator</h2>
+    <p class="lead" style="margin-bottom:32px;">Powered by OpenClaw's multi-channel AI framework — Hana reaches users on every platform they already use.</p>
+
+    <div class="g2" style="margin-bottom:24px;align-items:start;">
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-icon">🧠</div>
+          <div class="card-title">Wellness Assessment Engine</div>
+          <div class="card-body">Hana analyzes stress level, sleep quality, physical state, budget, and lifestyle preferences — then maps Vietnam's nature types to your exact needs.</div>
+        </div>
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-icon">🗺️</div>
+          <div class="card-title">Journey Builder</div>
+          <div class="card-body">Day-by-day itinerary, not just a listing. Wake time, meals, activities, healer sessions — a full nature lifestyle program curated for you.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <div class="card-title">Real-Time Booking</div>
+          <div class="card-body">Cross-checks 7-layer trust database, confirms live availability via ERPNext, and completes booking in one conversation — zero friction.</div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="background:rgba(62,207,142,0.04);border-color:rgba(62,207,142,0.2);">
+          <div style="font-weight:800;font-size:1rem;margin-bottom:16px;">🦞 OpenClaw Integration</div>
+          <div class="card-body" style="margin-bottom:16px;">Hana is deployed via <a href="https://github.com/openclaw/openclaw" style="color:var(--jade);" target="_blank">OpenClaw</a> — a personal AI assistant framework supporting every messaging platform users already live on.</div>
+          <div style="margin-bottom:12px;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);">Available on</div>
+          <div style="margin:-4px;">
+            <span class="channel-badge">💬 Zalo</span>
+            <span class="channel-badge">📱 WhatsApp</span>
+            <span class="channel-badge">✈️ Telegram</span>
+            <span class="channel-badge">💼 Slack</span>
+            <span class="channel-badge">🎮 Discord</span>
+            <span class="channel-badge">🌐 WebChat</span>
+            <span class="channel-badge">📧 iMessage</span>
+            <span class="channel-badge">+ 15 more</span>
+          </div>
+          <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Why OpenClaw?</div>
+            <div class="metric-row" style="padding:6px 0;"><span class="metric-label" style="font-size:0.8rem;">Multi-channel inbox</span><span class="metric-value" style="color:var(--jade);font-size:0.8rem;">22+ platforms</span></div>
+            <div class="metric-row" style="padding:6px 0;"><span class="metric-label" style="font-size:0.8rem;">Multi-agent routing</span><span class="metric-value" style="color:var(--jade);font-size:0.8rem;">Per-channel agents</span></div>
+            <div class="metric-row" style="padding:6px 0;"><span class="metric-label" style="font-size:0.8rem;">Voice support (iOS/Android)</span><span class="metric-value" style="color:var(--jade);font-size:0.8rem;">ElevenLabs TTS</span></div>
+            <div class="metric-row" style="padding:6px 0;"><span class="metric-label" style="font-size:0.8rem;">Skills registry</span><span class="metric-value" style="color:var(--jade);font-size:0.8rem;">ClawHub</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 6 — MARKET
+═══════════════════════════════════════════ -->
+<section class="slide" id="slide-6">
+  <div class="slide-inner">
+    <div class="slide-num">06 — Market Opportunity</div>
+    <h2 class="slide-title">A <span class="grad-jade">$919B</span> Market — Vietnam Is the Next Frontier</h2>
+
+    <div class="g4" style="margin-bottom:32px;">
+      <div class="stat-box card">
+        <div class="stat-num grad-jade">$919B</div>
+        <div class="stat-lbl">Global Wellness Tourism</div>
+      </div>
+      <div class="stat-box card">
+        <div class="stat-num grad-gold">$70B</div>
+        <div class="stat-lbl">VN Tourism Target 2030</div>
+      </div>
+      <div class="stat-box card">
+        <div class="stat-num" style="color:var(--sky)">10%</div>
+        <div class="stat-lbl">CAGR Wellness Tourism</div>
+      </div>
+      <div class="stat-box card">
+        <div class="stat-num grad-jade">35M</div>
+        <div class="stat-lbl">Target Inbound/Year</div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="card">
+        <div style="font-weight:800;margin-bottom:16px;">TAM / SAM / SOM</div>
+        <div class="progress-row"><div class="progress-label"><span>TAM — Global Wellness Tourism</span><span style="color:var(--jade)">$919B</span></div><div class="progress-track"><div class="progress-fill" style="width:100%"></div></div></div>
+        <div class="progress-row"><div class="progress-label"><span>SAM — SEA Wellness Tourism</span><span style="color:var(--gold)">$20B</span></div><div class="progress-track"><div class="progress-fill" style="width:55%;background:linear-gradient(90deg,var(--gold),#f5a623)"></div></div></div>
+        <div class="progress-row"><div class="progress-label"><span>SOM — Vietnam (Year 5)</span><span style="color:var(--sky)">$500M</span></div><div class="progress-track"><div class="progress-fill" style="width:30%;background:linear-gradient(90deg,var(--sky),#5da8d8)"></div></div></div>
+      </div>
+      <div class="card">
+        <div style="font-weight:800;margin-bottom:16px;">Why Vietnam Wins</div>
+        <div class="metric-row"><span class="metric-label">Cost vs Bali</span><span class="metric-value" style="color:var(--jade)">30–50% cheaper</span></div>
+        <div class="metric-row"><span class="metric-label">Nature diversity</span><span class="metric-value" style="color:var(--jade)">Beach + Mountain + River Delta</span></div>
+        <div class="metric-row"><span class="metric-label">Eastern medicine heritage</span><span class="metric-value" style="color:var(--jade)">4,000 years</span></div>
+        <div class="metric-row"><span class="metric-label">UNESCO World Heritage sites</span><span class="metric-value" style="color:var(--jade)">8 sites</span></div>
+        <div class="metric-row"><span class="metric-label">Authentic cultures</span><span class="metric-value" style="color:var(--jade)">54 ethnic groups</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 7 — REVENUE
+═══════════════════════════════════════════ -->
+<section class="slide" id="slide-7" style="background:rgba(232,201,122,0.02);">
+  <div class="slide-inner">
+    <div class="slide-num">07 — Business Model</div>
+    <h2 class="slide-title">7 Revenue Streams.<br/><span class="grad-gold">$25M ARR</span> by Year 3.</h2>
+
+    <table class="deck-table" style="margin-bottom:32px;">
+      <thead>
+        <tr>
+          <th>Revenue Stream</th>
+          <th>Mechanism</th>
+          <th>Year 1</th>
+          <th>Year 3</th>
+          <th>Margin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>💳 Booking Commission</strong></td>
+          <td>15–20% per booking</td>
+          <td>$900K</td>
+          <td style="color:var(--jade);font-weight:700;">$7.5M</td>
+          <td>High</td>
+        </tr>
+        <tr>
+          <td><strong>🤖 AI Hana Subscription</strong></td>
+          <td>$5–$10/month</td>
+          <td>$144K</td>
+          <td style="color:var(--jade);font-weight:700;">$2.4M</td>
+          <td>SaaS</td>
+        </tr>
+        <tr>
+          <td><strong>🏨 Retreat SaaS Tools</strong></td>
+          <td>$49–$499/month</td>
+          <td>$60K</td>
+          <td style="color:var(--jade);font-weight:700;">$3.6M</td>
+          <td>Recurring</td>
+        </tr>
+        <tr>
+          <td><strong>💼 Corporate B2B</strong></td>
+          <td>$5K–$50K/contract</td>
+          <td>$120K</td>
+          <td style="color:var(--jade);font-weight:700;">$5.0M</td>
+          <td>Premium</td>
+        </tr>
+        <tr>
+          <td><strong>📢 Sponsored Listings</strong></td>
+          <td>$200–$3K/month</td>
+          <td>$72K</td>
+          <td style="color:var(--jade);font-weight:700;">$4.8M</td>
+          <td>Scalable</td>
+        </tr>
+        <tr>
+          <td><strong>🎁 Gift Experiences</strong></td>
+          <td>Vouchers + Tết/occasions</td>
+          <td>$15K</td>
+          <td style="color:var(--jade);font-weight:700;">$1.35M</td>
+          <td>Seasonal</td>
+        </tr>
+        <tr style="background:rgba(62,207,142,0.04);">
+          <td><strong>TOTAL ARR</strong></td>
+          <td></td>
+          <td><strong>$1.31M</strong></td>
+          <td style="color:var(--jade);font-weight:900;font-size:1.1rem;">$25.15M</td>
+          <td style="color:var(--jade)">~75%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="g3">
+      <div class="stat-box card">
+        <div class="stat-num grad-jade">7:1</div>
+        <div class="stat-lbl">LTV:CAC Ratio (Consumer)</div>
+      </div>
+      <div class="stat-box card">
+        <div class="stat-num grad-gold">100:1</div>
+        <div class="stat-lbl">LTV:CAC Ratio (B2B)</div>
+      </div>
+      <div class="stat-box card">
+        <div class="stat-num" style="color:var(--sky)">75%</div>
+        <div class="stat-lbl">Gross Margin</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 8 — GTM
+═══════════════════════════════════════════ -->
+<section class="slide" id="slide-8">
+  <div class="slide-inner">
+    <div class="slide-num">08 — Go-To-Market</div>
+    <h2 class="slide-title">Niche First. <span class="grad-jade">Then Dominate.</span></h2>
+    <p class="lead" style="margin-bottom:32px;"><strong>Phase 1 rule</strong>: TP.HCM users × Phú Quốc retreats. 100% focus. Then expand.</p>
+
+    <div class="g2">
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="font-weight:800;">📱 TikTok / Reels</div>
+            <span class="badge badge-jade">Primary</span>
+          </div>
+          <div class="card-body">50 nano-KOL free stays → 300+ authentic videos. Spark Ads boost top performers. Hook in 3 seconds — <em>"What 5 days in Hà Giang did to my burnout"</em>.</div>
+        </div>
+        <div class="card" style="margin-bottom:16px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="font-weight:800;">🔍 Google SEO</div>
+            <span class="badge badge-gold">International</span>
+          </div>
+          <div class="card-body">Target: "best wellness retreat vietnam 2025", "authentic eco lodge sapa". Pillar articles + cluster content → 30K organic visitors/month by Month 6.</div>
+        </div>
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="font-weight:800;">💼 LinkedIn B2B</div>
+            <span class="badge badge-rose">High LTV</span>
+          </div>
+          <div class="card-body">Target HR Directors + CHROs. ROI case studies: "30% turnover reduction after team retreat". Lead gen → 30-min call → pilot contract.</div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="height:100%;background:linear-gradient(135deg,rgba(62,207,142,0.04),rgba(45,212,191,0.02));border-color:rgba(62,207,142,0.15);">
+          <div style="font-weight:800;margin-bottom:20px;">90-Day Growth Loops</div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(62,207,142,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+              <div><div style="font-weight:700;font-size:0.85rem;margin-bottom:3px;">Video Viral Loop</div><div class="card-body">UGC video → viral → new retreat joins → more UGC → compound</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(122,184,232,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+              <div><div style="font-weight:700;font-size:0.85rem;margin-bottom:3px;">AI Data Loop</div><div class="card-body">More chats → better Hana → better conversion → more GMV</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(232,201,122,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
+              <div><div style="font-weight:700;font-size:0.85rem;margin-bottom:3px;">Trust Compounding</div><div class="card-body">Verified reviews grow → international traveler trust → more GMV</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(232,122,159,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">4</div>
+              <div><div style="font-weight:700;font-size:0.85rem;margin-bottom:3px;">B2B Spill Loop</div><div class="card-body">Corporate retreat → employees love it → book personal trips → new consumers</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 9 — ROADMAP
+═══════════════════════════════════════════ -->
+<section class="slide" id="slide-9" style="background:rgba(122,184,232,0.02);">
+  <div class="slide-inner">
+    <div class="slide-num">09 — Roadmap</div>
+    <h2 class="slide-title">3 Years to <span class="grad-jade">ASEAN #1</span></h2>
+
+    <div class="g2" style="align-items:start;">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot" style="background:rgba(62,207,142,0.15);color:var(--jade);">🌱</div>
+          <div class="tl-body">
+            <div class="tl-phase">2025 Q1–Q2</div>
+            <div class="tl-title">Foundation — Niche Down</div>
+            <div class="tl-desc">200 verified retreats (Phú Quốc focus) · AI Hana v1 on Zalo + WhatsApp via OpenClaw · 10,000 MAU · $1M GMV · Seed $1.5M</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:rgba(232,201,122,0.15);color:var(--gold);">🚀</div>
+          <div class="tl-body">
+            <div class="tl-phase">2025 Q3–Q4</div>
+            <div class="tl-title">Growth — National Scale</div>
+            <div class="tl-desc">1,000 retreats · 50,000 MAU · Corporate B2B launch · International SEO live · Mobile app iOS + Android · $5M GMV</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:rgba(122,184,232,0.15);color:var(--sky);">🌏</div>
+          <div class="tl-body">
+            <div class="tl-phase">2026</div>
+            <div class="tl-title">Dominate — ASEAN Expansion</div>
+            <div class="tl-desc">Thailand + Indonesia + Bali · 5,000 retreats · 500K MAU · HealVN Originals (own properties) · $50M GMV · Series A $8M</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:rgba(232,122,159,0.15);color:var(--rose);">🦄</div>
+          <div class="tl-body">
+            <div class="tl-phase">2027–2030</div>
+            <div class="tl-title">Unicorn — Global Wellness OS</div>
+            <div class="tl-desc">10M users · 10+ countries · Hana AI v3 real-time · $1B+ GMV · $100M+ ARR</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <div style="font-weight:800;margin-bottom:16px;">KPIs — 12-Month Targets</div>
+          <div class="metric-row"><span class="metric-label">Verified Retreats</span><span class="metric-value" style="color:var(--jade)">1,000</span></div>
+          <div class="metric-row"><span class="metric-label">Monthly Active Users</span><span class="metric-value" style="color:var(--jade)">50,000</span></div>
+          <div class="metric-row"><span class="metric-label">Monthly Bookings</span><span class="metric-value" style="color:var(--jade)">5,000</span></div>
+          <div class="metric-row"><span class="metric-label">GMV / Month</span><span class="metric-value" style="color:var(--jade)">$5M</span></div>
+          <div class="metric-row"><span class="metric-label">NPS Score</span><span class="metric-value" style="color:var(--jade)">> 70</span></div>
+          <div class="metric-row"><span class="metric-label">ARR</span><span class="metric-value" style="color:var(--jade)">$6.6M</span></div>
+        </div>
+        <div class="card" style="background:rgba(232,201,122,0.04);border-color:rgba(232,201,122,0.2);">
+          <div style="font-weight:800;margin-bottom:12px;">Tech Stack</div>
+          <div class="card-body">
+            <strong>Frontend</strong>: HTML5 + VanillaJS + Glassmorphism<br/>
+            <strong>Backend</strong>: ERPNext v15 + Frappe + Python<br/>
+            <strong>AI Channel</strong>: OpenClaw (Zalo, WhatsApp, Telegram…)<br/>
+            <strong>Mobile</strong>: React Native (2025 Q4)<br/>
+            <strong>AI Engine</strong>: GPT-4 / Claude + Vector DB
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 10 — THE ASK
+═══════════════════════════════════════════ -->
+<section class="slide cta-slide" id="slide-10">
+  <div class="orb" style="width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(62,207,142,0.07);"></div>
+  <div class="slide-inner" style="text-align:center;position:relative;z-index:1;">
+    <div class="slide-num" style="justify-content:center;display:flex;">10 — The Ask</div>
+    <div class="eyebrow" style="margin:0 auto 24px;">🌱 Seed Round · 2025</div>
+    <h2 class="slide-title">Raising <span class="grad-jade">$1.5M Seed</span></h2>
+    <p class="lead" style="margin:0 auto 40px;">To verify 500 retreats, reach 10,000 MAU, launch Hana AI multi-channel, and achieve Series A readiness ($8M, 2026).</p>
+
+    <div class="g4" style="margin-bottom:48px;">
+      <div class="stat-box card">
+        <div class="stat-num grad-jade">40%</div>
+        <div class="stat-lbl">Tech & AI Development · $600K</div>
+      </div>
+      <div class="stat-box card">
+        <div class="stat-num grad-gold">25%</div>
+        <div class="stat-lbl">Marketing & Content · $375K</div>
+      </div>
+      <div class="stat-box card">
+        <div class="stat-num" style="color:var(--sky)">15%</div>
+        <div class="stat-lbl">Operations & Trust · $225K</div>
+      </div>
+      <div class="stat-box card">
+        <div class="stat-num" style="color:var(--rose)">20%</div>
+        <div class="stat-lbl">Team (12 months) · $300K</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:48px;padding:32px;border-radius:16px;background:rgba(255,255,255,0.03);border:1px solid var(--border);max-width:600px;margin-left:auto;margin-right:auto;">
+      <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-style:italic;line-height:1.5;color:rgba(255,255,255,0.9);">
+        "Vietnam has the most authentic healing nature in Asia.<br/>We build the bridge for the world to find it."
+      </div>
+    </div>
+
+    <div class="deck-contact">
+      <a href="../index.html" class="btn-deck btn-deck-primary">🌿 See the Platform</a>
+      <a href="retreats.html" class="btn-deck btn-deck-outline">🗺️ Browse Retreats</a>
+      <a href="ai-advisor.html" class="btn-deck btn-deck-outline">🤖 Try AI Hana</a>
+    </div>
+
+    <div style="margin-top:48px;color:var(--muted);font-size:0.8rem;">
+      HealVN · Vietnam Wellness Platform · © 2026 · Made with 💚 in Vietnam
+    </div>
+  </div>
+</section>
+
+<script>
+  // Slide progress indicator
+  const slides = document.querySelectorAll('.slide');
+  const navPills = document.querySelectorAll('.nav-pill');
+  const counter = document.querySelector('.slides-count');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(slides).indexOf(entry.target);
+        navPills.forEach((p,i) => {
+          p.style.borderColor = i === idx ? 'var(--jade)' : '';
+          p.style.color = i === idx ? 'var(--jade)' : '';
+        });
+        counter.textContent = `${idx+1} / 10`;
+      }
+    });
+  }, { threshold: 0.5 });
+
+  slides.forEach(s => observer.observe(s));
+
+  // Animate numbers on scroll
+  const animateNum = (el) => {
+    const target = parseFloat(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1200;
+    const start = performance.now();
+    const update = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const val = target * ease;
+      el.textContent = (target % 1 === 0 ? Math.floor(val) : val.toFixed(1)) + suffix;
+      if (p < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  };
+
+  const numObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.target.dataset.target) {
+        animateNum(e.target);
+        numObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-target]').forEach(el => numObserver.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+{
+  "name": "Retreat Booking",
+  "module": "HealVN",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "is_submittable": 0,
+  "track_changes": 1,
+  "show_name_in_global_search": 1,
+  "search_fields": "booking_id,guest_name,retreat,status",
+  "title_field": "booking_id",
+  "autoname": "naming_series:",
+  "naming_series": "BKG-.YYYY.-.#####",
+  "fields": [
+    {
+      "fieldname": "booking_id",
+      "fieldtype": "Data",
+      "label": "Booking ID",
+      "read_only": 1,
+      "in_list_view": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Pending\nConfirmed\nChecked In\nCompleted\nCancelled\nNo Show",
+      "default": "Pending",
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "payment_status",
+      "fieldtype": "Select",
+      "label": "Payment Status",
+      "options": "Unpaid\nOrder Created\nInvoiced\nPaid\nRefund Pending\nRefunded\nCancelled",
+      "default": "Unpaid",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "section_retreat",
+      "fieldtype": "Section Break",
+      "label": "Retreat Details"
+    },
+    {
+      "fieldname": "retreat",
+      "fieldtype": "Link",
+      "label": "Retreat",
+      "options": "Retreat",
+      "reqd": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "retreat_name_display",
+      "fieldtype": "Data",
+      "label": "Retreat Name",
+      "fetch_from": "retreat.retreat_name",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_retreat",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "pricing_type",
+      "fieldtype": "Select",
+      "label": "Pricing Type",
+      "options": "Per Night\nPackage",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_guest",
+      "fieldtype": "Section Break",
+      "label": "Guest Information"
+    },
+    {
+      "fieldname": "guest_name",
+      "fieldtype": "Data",
+      "label": "Guest Name",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "guest_email",
+      "fieldtype": "Data",
+      "label": "Guest Email",
+      "options": "Email"
+    },
+    {
+      "fieldname": "guest_phone",
+      "fieldtype": "Phone",
+      "label": "Guest Phone"
+    },
+    {
+      "fieldname": "column_break_guest",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "label": "Customer (ERPNext)",
+      "options": "Customer"
+    },
+    {
+      "fieldname": "nationality",
+      "fieldtype": "Link",
+      "label": "Nationality",
+      "options": "Country"
+    },
+    {
+      "fieldname": "num_guests",
+      "fieldtype": "Int",
+      "label": "Number of Guests",
+      "default": 1
+    },
+    {
+      "fieldname": "section_dates",
+      "fieldtype": "Section Break",
+      "label": "Dates"
+    },
+    {
+      "fieldname": "check_in",
+      "fieldtype": "Date",
+      "label": "Check-in Date",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "check_out",
+      "fieldtype": "Date",
+      "label": "Check-out Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "duration_nights",
+      "fieldtype": "Int",
+      "label": "Duration (Nights)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_dates",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "actual_check_in",
+      "fieldtype": "Date",
+      "label": "Actual Check-in"
+    },
+    {
+      "fieldname": "actual_check_out",
+      "fieldtype": "Date",
+      "label": "Actual Check-out"
+    },
+    {
+      "fieldname": "section_financials",
+      "fieldtype": "Section Break",
+      "label": "Financials"
+    },
+    {
+      "fieldname": "subtotal",
+      "fieldtype": "Currency",
+      "label": "Subtotal",
+      "read_only": 1,
+      "options": "currency"
+    },
+    {
+      "fieldname": "tax_rate",
+      "fieldtype": "Percent",
+      "label": "Tax Rate (%)",
+      "default": 10
+    },
+    {
+      "fieldname": "tax_amount",
+      "fieldtype": "Currency",
+      "label": "Tax Amount",
+      "read_only": 1,
+      "options": "currency"
+    },
+    {
+      "fieldname": "column_break_fin",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "discount_amount",
+      "fieldtype": "Currency",
+      "label": "Discount",
+      "options": "currency"
+    },
+    {
+      "fieldname": "total_amount",
+      "fieldtype": "Currency",
+      "label": "Total Amount",
+      "read_only": 1,
+      "in_list_view": 1,
+      "options": "currency"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency",
+      "default": "USD"
+    },
+    {
+      "fieldname": "section_erp_links",
+      "fieldtype": "Section Break",
+      "label": "ERPNext Links",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "sales_order",
+      "fieldtype": "Link",
+      "label": "Sales Order",
+      "options": "Sales Order",
+      "read_only": 1
+    },
+    {
+      "fieldname": "sales_invoice",
+      "fieldtype": "Link",
+      "label": "Sales Invoice",
+      "options": "Sales Invoice",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_notes",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "special_requests",
+      "fieldtype": "Small Text",
+      "label": "Special Requests"
+    },
+    {
+      "fieldname": "internal_notes",
+      "fieldtype": "Small Text",
+      "label": "Internal Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1, "write": 1, "create": 1, "delete": 1
+    },
+    {
+      "role": "Retreat Manager",
+      "read": 1, "write": 1, "create": 1
+    },
+    {
+      "role": "Sales User",
+      "read": 1, "write": 1, "create": 1
+    },
+    {
+      "role": "Customer",
+      "read": 1,
+      "if_owner": 1
+    }
+  ]
+}

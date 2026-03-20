@@ -1,0 +1,331 @@
+{
+  "name": "Retreat",
+  "module": "HealVN",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "is_submittable": 0,
+  "has_web_view": 1,
+  "allow_guest_to_view": 1,
+  "route": "retreats",
+  "show_name_in_global_search": 1,
+  "image_field": "thumbnail",
+  "search_fields": "retreat_name,location,province,category",
+  "title_field": "retreat_name",
+  "autoname": "naming_series:",
+  "naming_series": "RET-.YYYY.-.####",
+  "fields": [
+    {
+      "fieldname": "retreat_name",
+      "fieldtype": "Data",
+      "label": "Retreat Name",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Select",
+      "label": "Category",
+      "options": "\nLuxury\nEco Retreat\nYoga & Meditation\nDetox\nSpa & Wellness\nCultural\nAdventure\nBudget\nHomestay",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Draft\nActive\nPaused\nClosed",
+      "default": "Draft",
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "section_location",
+      "fieldtype": "Section Break",
+      "label": "Location"
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Data",
+      "label": "Location Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "province",
+      "fieldtype": "Link",
+      "label": "Province",
+      "options": "Territory",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "country",
+      "fieldtype": "Link",
+      "label": "Country",
+      "options": "Country",
+      "default": "Vietnam"
+    },
+    {
+      "fieldname": "address",
+      "fieldtype": "Small Text",
+      "label": "Full Address"
+    },
+    {
+      "fieldname": "column_break_loc",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "latitude",
+      "fieldtype": "Float",
+      "label": "Latitude",
+      "precision": 8
+    },
+    {
+      "fieldname": "longitude",
+      "fieldtype": "Float",
+      "label": "Longitude",
+      "precision": 8
+    },
+    {
+      "fieldname": "google_maps_url",
+      "fieldtype": "Data",
+      "label": "Google Maps URL"
+    },
+    {
+      "fieldname": "section_pricing",
+      "fieldtype": "Section Break",
+      "label": "Pricing"
+    },
+    {
+      "fieldname": "price_per_night",
+      "fieldtype": "Currency",
+      "label": "Price Per Night",
+      "options": "currency"
+    },
+    {
+      "fieldname": "price_per_package",
+      "fieldtype": "Currency",
+      "label": "Package Price",
+      "options": "currency"
+    },
+    {
+      "fieldname": "package_duration_days",
+      "fieldtype": "Int",
+      "label": "Package Duration (Days)"
+    },
+    {
+      "fieldname": "column_break_price",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency",
+      "default": "USD"
+    },
+    {
+      "fieldname": "max_guests",
+      "fieldtype": "Int",
+      "label": "Max Guests",
+      "default": 20
+    },
+    {
+      "fieldname": "item_code",
+      "fieldtype": "Link",
+      "label": "Linked Item",
+      "options": "Item",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_details",
+      "fieldtype": "Section Break",
+      "label": "Details"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text Editor",
+      "label": "Description"
+    },
+    {
+      "fieldname": "highlights",
+      "fieldtype": "Small Text",
+      "label": "Highlights (one per line)"
+    },
+    {
+      "fieldname": "section_media",
+      "fieldtype": "Section Break",
+      "label": "Media"
+    },
+    {
+      "fieldname": "thumbnail",
+      "fieldtype": "Attach Image",
+      "label": "Thumbnail"
+    },
+    {
+      "fieldname": "photos",
+      "fieldtype": "Table",
+      "label": "Photos",
+      "options": "Retreat Photo"
+    },
+    {
+      "fieldname": "video_url",
+      "fieldtype": "Data",
+      "label": "Video URL"
+    },
+    {
+      "fieldname": "section_wellness",
+      "fieldtype": "Section Break",
+      "label": "Wellness & Amenities"
+    },
+    {
+      "fieldname": "wellness_types",
+      "fieldtype": "Table",
+      "label": "Wellness Types",
+      "options": "Retreat Wellness Type"
+    },
+    {
+      "fieldname": "amenities",
+      "fieldtype": "Table",
+      "label": "Amenities",
+      "options": "Retreat Amenity"
+    },
+    {
+      "fieldname": "section_owner",
+      "fieldtype": "Section Break",
+      "label": "Owner & Contact"
+    },
+    {
+      "fieldname": "retreat_owner",
+      "fieldtype": "Link",
+      "label": "Retreat Owner",
+      "options": "Supplier"
+    },
+    {
+      "fieldname": "contact_person",
+      "fieldtype": "Data",
+      "label": "Contact Person"
+    },
+    {
+      "fieldname": "contact_phone",
+      "fieldtype": "Phone",
+      "label": "Contact Phone"
+    },
+    {
+      "fieldname": "contact_email",
+      "fieldtype": "Data",
+      "label": "Contact Email",
+      "options": "Email"
+    },
+    {
+      "fieldname": "section_verification",
+      "fieldtype": "Section Break",
+      "label": "7-Layer Trust Verification",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "identity_verified",
+      "fieldtype": "Check",
+      "label": "1. Identity Verified"
+    },
+    {
+      "fieldname": "legal_verified",
+      "fieldtype": "Check",
+      "label": "2. Legal / License Verified"
+    },
+    {
+      "fieldname": "physical_inspected",
+      "fieldtype": "Check",
+      "label": "3. Physical Inspection Done"
+    },
+    {
+      "fieldname": "photo_audited",
+      "fieldtype": "Check",
+      "label": "4. Photo / Video Audit"
+    },
+    {
+      "fieldname": "review_verified",
+      "fieldtype": "Check",
+      "label": "5. Reviews Verified"
+    },
+    {
+      "fieldname": "price_transparent",
+      "fieldtype": "Check",
+      "label": "6. Price Transparency"
+    },
+    {
+      "fieldname": "ongoing_monitored",
+      "fieldtype": "Check",
+      "label": "7. Ongoing Monitoring"
+    },
+    {
+      "fieldname": "column_break_verif",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "verification_score",
+      "fieldtype": "Percent",
+      "label": "Verification Score",
+      "read_only": 1
+    },
+    {
+      "fieldname": "verification_status",
+      "fieldtype": "Select",
+      "label": "Verification Status",
+      "options": "Pending Verification\nPartially Verified\nFully Verified",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "last_inspection_date",
+      "fieldtype": "Date",
+      "label": "Last Inspection Date"
+    },
+    {
+      "fieldname": "section_ratings",
+      "fieldtype": "Section Break",
+      "label": "Ratings & Reviews"
+    },
+    {
+      "fieldname": "average_rating",
+      "fieldtype": "Rating",
+      "label": "Average Rating",
+      "read_only": 1
+    },
+    {
+      "fieldname": "total_reviews",
+      "fieldtype": "Int",
+      "label": "Total Reviews",
+      "read_only": 1
+    },
+    {
+      "fieldname": "reviews",
+      "fieldtype": "Table",
+      "label": "Reviews",
+      "options": "Retreat Review"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 0
+    },
+    {
+      "role": "Retreat Manager",
+      "read": 1, "write": 1, "create": 1, "delete": 0
+    },
+    {
+      "role": "Retreat Owner",
+      "read": 1, "write": 1, "create": 1,
+      "if_owner": 1
+    },
+    {
+      "role": "Guest",
+      "read": 1
+    }
+  ]
+}

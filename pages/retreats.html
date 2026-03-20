@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Retreat Marketplace — HealVN</title>
+  <meta name="description" content="Khám phá 1,200+ retreat wellness xác thực tại Việt Nam. Lọc theo địa điểm, phong cách, và ngân sách."/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>"/>
+</head>
+<body>
+<div class="bg-orbs"><span></span><span></span><span></span></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Heal<span>VN</span></a>
+  <div class="nav-links">
+    <a href="../index.html">Trang Chủ</a>
+    <a href="retreats.html" style="color:var(--clr-jade)">Retreats</a>
+    <a href="ai-advisor.html">AI Advisor</a>
+    <a href="about.html">Về Chúng Tôi</a>
+  </div>
+  <a href="ai-advisor.html" class="nav-cta">AI Advisor ✨</a>
+  <button class="hamburger" id="hamburger">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html">Trang Chủ</a>
+  <a href="retreats.html">Retreats</a>
+  <a href="ai-advisor.html">AI Advisor</a>
+  <a href="about.html">Về Chúng Tôi</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container fade-up">
+    <div class="section-label">🛖 Marketplace</div>
+    <h1 class="section-title">Tìm Retreat <span class="grad-jade">Hoàn Hảo</span></h1>
+    <p class="section-sub">1,200+ retreat verified tại 63 tỉnh thành. Từ luxury resort đến eco-lodge rừng núi.</p>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <div class="badge badge-jade">✅ 1,247 Verified</div>
+      <div class="badge badge-gold">⭐ Rating 4.9/5</div>
+      <div class="badge badge-sky">🛡️ 7-Layer Trust</div>
+      <div class="badge badge-rose">🔥 Hot: Phú Quốc tháng 3</div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="container" style="margin-bottom:0;position:relative;z-index:1">
+  <div class="filter-bar fade-up">
+    <input class="filter-search" id="retreatSearch" placeholder="🔍 Tìm kiếm retreat, địa điểm..."/>
+    <select class="filter-select" id="locationFilter">
+      <option value="">📍 Tất cả địa điểm</option>
+      <option>Phú Quốc</option>
+      <option>Sa Pa</option>
+      <option>Hội An</option>
+      <option>Đà Lạt</option>
+      <option>Hà Giang</option>
+      <option>Côn Đảo</option>
+      <option>Mũi Né</option>
+      <option>Ninh Bình</option>
+    </select>
+    <select class="filter-select">
+      <option>💰 Mọi ngân sách</option>
+      <option>Under $500</option>
+      <option>$500–$2,000</option>
+      <option>$2,000+</option>
+    </select>
+    <select class="filter-select">
+      <option>🌿 Phong cách</option>
+      <option>Yoga & Meditation</option>
+      <option>Detox</option>
+      <option>Spa & Wellness</option>
+      <option>Eco & Nature</option>
+      <option>Cultural</option>
+    </select>
+    <select class="filter-select">
+      <option>📅 Thời gian</option>
+      <option>Cuối tuần (2–3 ngày)</option>
+      <option>Tuần (5–7 ngày)</option>
+      <option>Dài hạn (2+ tuần)</option>
+    </select>
+  </div>
+</div>
+
+<!-- PILL CATEGORY NAV -->
+<section style="padding: 32px 0 0">
+  <div class="container">
+    <div class="pill-nav fade-up">
+      <div class="pill-nav-item active" data-target="all">Tất Cả (1,247)</div>
+      <div class="pill-nav-item" data-target="luxury">💎 Luxury</div>
+      <div class="pill-nav-item" data-target="eco">🌿 Eco Retreat</div>
+      <div class="pill-nav-item" data-target="yoga">🧘 Yoga</div>
+      <div class="pill-nav-item" data-target="detox">🍃 Detox</div>
+      <div class="pill-nav-item" data-target="spa">💆 Spa</div>
+      <div class="pill-nav-item" data-target="cultural">🏮 Văn Hóa</div>
+      <div class="pill-nav-item" data-target="budget">💚 Budget</div>
+    </div>
+
+    <!-- RETREAT GRID -->
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; padding-bottom:80px">
+
+      <!-- Card 1 -->
+      <div class="retreat-card fade-up" data-category="luxury">
+        <div class="retreat-thumb" style="background:linear-gradient(135deg,#0a2a2a,#0d4d3a)">🌊</div>
+        <div class="retreat-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div class="retreat-name">Six Senses Côn Đảo</div>
+            <div class="badge badge-jade" style="font-size:0.65rem">Verified ✓</div>
+          </div>
+          <div class="retreat-loc">📍 Côn Đảo · 7 ngày</div>
+          <div class="retreat-tags">
+            <span class="retreat-tag">Luxury</span>
+            <span class="retreat-tag">Ocean View</span>
+            <span class="retreat-tag">Spa</span>
+            <span class="retreat-tag">Yoga</span>
+          </div>
+          <div style="font-size:0.8rem;color:var(--clr-muted);margin-bottom:14px;line-height:1.5">Private villa overwater · Bữa sáng organic · Therapist riêng · Yoga bình minh hằng ngày</div>
+          <div class="retreat-footer">
+            <div><div class="retreat-price">$3,200 <span>/ người</span></div><div class="retreat-stars">★★★★★ 4.9 (324 reviews)</div></div>
+            <a href="ai-advisor.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem">Book →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="retreat-card fade-up" data-category="eco" style="transition-delay:0.05s">
+        <div class="retreat-thumb" style="background:linear-gradient(135deg,#1a2a10,#2d4a20)">🏔️</div>
+        <div class="retreat-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div class="retreat-name">Topas Ecolodge Sapa</div>
+            <div class="badge badge-gold" style="font-size:0.65rem">Top Pick</div>
+          </div>
+          <div class="retreat-loc">📍 Sa Pa · 5 ngày</div>
+          <div class="retreat-tags">
+            <span class="retreat-tag">Eco</span>
+            <span class="retreat-tag">Trekking</span>
+            <span class="retreat-tag">Culture</span>
+          </div>
+          <div style="font-size:0.8rem;color:var(--clr-muted);margin-bottom:14px;line-height:1.5">Stone bungalows · Trekking ruộng bậc thang · Gặp gỡ người Mông · Ẩm thực địa phương</div>
+          <div class="retreat-footer">
+            <div><div class="retreat-price">$890 <span>/ người</span></div><div class="retreat-stars">★★★★★ 4.8 (218 reviews)</div></div>
+            <a href="ai-advisor.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem">Book →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="retreat-card fade-up" data-category="yoga" style="transition-delay:0.1s">
+        <div class="retreat-thumb" style="background:linear-gradient(135deg,#2a1a30,#4a2a5a)">🌸</div>
+        <div class="retreat-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div class="retreat-name">Hội An Herb Garden</div>
+            <div class="badge badge-jade" style="font-size:0.65rem">Verified ✓</div>
+          </div>
+          <div class="retreat-loc">📍 Hội An · 5 ngày</div>
+          <div class="retreat-tags">
+            <span class="retreat-tag">Yoga</span>
+            <span class="retreat-tag">Detox</span>
+            <span class="retreat-tag">Traditional</span>
+          </div>
+          <div style="font-size:0.8rem;color:var(--clr-muted);margin-bottom:14px;line-height:1.5">Yoga 2 buổi/ngày · Detox thảo mộc truyền thống · Cooking class ẩm thực Hội An</div>
+          <div class="retreat-footer">
+            <div><div class="retreat-price">$650 <span>/ người</span></div><div class="retreat-stars">★★★★½ 4.7 (156 reviews)</div></div>
+            <a href="ai-advisor.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem">Book →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="retreat-card fade-up" data-category="luxury" style="transition-delay:0.15s">
+        <div class="retreat-thumb" style="background:linear-gradient(135deg,#0d1f2e,#1a3a5a)">🌴</div>
+        <div class="retreat-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div class="retreat-name">Fusion Resort Phú Quốc</div>
+            <div class="badge badge-jade" style="font-size:0.65rem">Verified ✓</div>
+          </div>
+          <div class="retreat-loc">📍 Phú Quốc · 7 ngày</div>
+          <div class="retreat-tags">
+            <span class="retreat-tag">Luxury</span>
+            <span class="retreat-tag">Beach</span>
+            <span class="retreat-tag">Spa</span>
+          </div>
+          <div style="font-size:0.8rem;color:var(--clr-muted);margin-bottom:14px;line-height:1.5">All-inclusive spa treatments · Yoga bình minh · Beach meditation · Sunset cruise</div>
+          <div class="retreat-footer">
+            <div><div class="retreat-price">$2,100 <span>/ người</span></div><div class="retreat-stars">★★★★★ 4.9 (441 reviews)</div></div>
+            <a href="ai-advisor.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem">Book →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="retreat-card fade-up" data-category="detox" style="transition-delay:0.2s">
+        <div class="retreat-thumb" style="background:linear-gradient(135deg,#1a2b1a,#3a5a32)">🌿</div>
+        <div class="retreat-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div class="retreat-name">Đà Lạt Green Detox</div>
+            <div class="badge badge-rose" style="font-size:0.65rem">🔥 Hot</div>
+          </div>
+          <div class="retreat-loc">📍 Đà Lạt · 7 ngày</div>
+          <div class="retreat-tags">
+            <span class="retreat-tag">Detox</span>
+            <span class="retreat-tag">Organic</span>
+            <span class="retreat-tag">Holistic</span>
+          </div>
+          <div style="font-size:0.8rem;color:var(--clr-muted);margin-bottom:14px;line-height:1.5">7-day juice cleanse · Organic farm visits · Sound healing · Forest bathing morning</div>
+          <div class="retreat-footer">
+            <div><div class="retreat-price">$780 <span>/ người</span></div><div class="retreat-stars">★★★★★ 4.8 (203 reviews)</div></div>
+            <a href="ai-advisor.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem">Book →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="retreat-card fade-up" data-category="budget" style="transition-delay:0.25s">
+        <div class="retreat-thumb" style="background:linear-gradient(135deg,#1f1a10,#3a2e1a)">🏡</div>
+        <div class="retreat-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div class="retreat-name">Mộc Châu Homestay Retreat</div>
+            <div class="badge badge-sky" style="font-size:0.65rem">💚 Budget</div>
+          </div>
+          <div class="retreat-loc">📍 Mộc Châu · 3 ngày</div>
+          <div class="retreat-tags">
+            <span class="retreat-tag">Budget</span>
+            <span class="retreat-tag">Nature</span>
+            <span class="retreat-tag">Cultural</span>
+          </div>
+          <div style="font-size:0.8rem;color:var(--clr-muted);margin-bottom:14px;line-height:1.5">Homestay với người Thái · Tea plantation visit · Meditation buổi sáng · Ẩm thực địa phương</div>
+          <div class="retreat-footer">
+            <div><div class="retreat-price">$240 <span>/ người</span></div><div class="retreat-stars">★★★★½ 4.6 (89 reviews)</div></div>
+            <a href="ai-advisor.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem">Book →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="retreat-card fade-up" data-category="spa" style="transition-delay:0.3s">
+        <div class="retreat-thumb" style="background:linear-gradient(135deg,#2a1020,#5a2040)">🌺</div>
+        <div class="retreat-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div class="retreat-name">Anantara Hội An Spa</div>
+            <div class="badge badge-gold" style="font-size:0.65rem">★ Premium</div>
+          </div>
+          <div class="retreat-loc">📍 Hội An · 5 ngày</div>
+          <div class="retreat-tags">
+            <span class="retreat-tag">Spa</span>
+            <span class="retreat-tag">Luxury</span>
+            <span class="retreat-tag">Riverfront</span>
+          </div>
+          <div style="font-size:0.8rem;color:var(--clr-muted);margin-bottom:14px;line-height:1.5">Massage Việt truyền thống · Hot stone therapy · Riverfront yoga · Lantern festival experience</div>
+          <div class="retreat-footer">
+            <div><div class="retreat-price">$1,450 <span>/ người</span></div><div class="retreat-stars">★★★★★ 4.8 (287 reviews)</div></div>
+            <a href="ai-advisor.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem">Book →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="retreat-card fade-up" data-category="cultural" style="transition-delay:0.35s">
+        <div class="retreat-thumb" style="background:linear-gradient(135deg,#2a200a,#4a3a10)">🏯</div>
+        <div class="retreat-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div class="retreat-name">Ninh Bình Heritage Journey</div>
+            <div class="badge badge-jade" style="font-size:0.65rem">Verified ✓</div>
+          </div>
+          <div class="retreat-loc">📍 Ninh Bình · 4 ngày</div>
+          <div class="retreat-tags">
+            <span class="retreat-tag">Cultural</span>
+            <span class="retreat-tag">Heritage</span>
+            <span class="retreat-tag">Kayak</span>
+          </div>
+          <div style="font-size:0.8rem;color:var(--clr-muted);margin-bottom:14px;line-height:1.5">Chèo thuyền hang động · Thiền Phật giáo · Ẩm thực cơm cháy đặc sản · Bike tour làng cổ</div>
+          <div class="retreat-footer">
+            <div><div class="retreat-price">$520 <span>/ người</span></div><div class="retreat-stars">★★★★½ 4.7 (134 reviews)</div></div>
+            <a href="ai-advisor.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem">Book →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="retreat-card fade-up" data-category="eco" style="transition-delay:0.4s">
+        <div class="retreat-thumb" style="background:linear-gradient(135deg,#102a1a,#1a5a32)">🌾</div>
+        <div class="retreat-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div class="retreat-name">Hà Giang Wild Retreat</div>
+            <div class="badge badge-rose" style="font-size:0.65rem">🌄 Adventure</div>
+          </div>
+          <div class="retreat-loc">📍 Hà Giang · 7 ngày</div>
+          <div class="retreat-tags">
+            <span class="retreat-tag">Adventure</span>
+            <span class="retreat-tag">Eco</span>
+            <span class="retreat-tag">Tribe Culture</span>
+          </div>
+          <div style="font-size:0.8rem;color:var(--clr-muted);margin-bottom:14px;line-height:1.5">Loop motorcycle tour · Homestay người Mông · Cao Nguyên Đá UNESCO · Buckwheat flower season</div>
+          <div class="retreat-footer">
+            <div><div class="retreat-price">$690 <span>/ người</span></div><div class="retreat-stars">★★★★★ 4.9 (178 reviews)</div></div>
+            <a href="ai-advisor.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem">Book →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <div>© 2026 HealVN · <a href="../index.html" style="color:var(--clr-jade)">Về Trang Chủ</a></div>
+      <div style="color:var(--clr-muted)">1,247 retreats · 63 tỉnh thành · AI Verified 🌿</div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

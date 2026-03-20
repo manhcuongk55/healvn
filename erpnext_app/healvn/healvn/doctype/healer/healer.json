@@ -1,0 +1,118 @@
+{
+  "name": "Healer",
+  "module": "HealVN",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "has_web_view": 1,
+  "show_name_in_global_search": 1,
+  "image_field": "photo",
+  "search_fields": "healer_name,specialty,province",
+  "title_field": "healer_name",
+  "autoname": "naming_series:",
+  "naming_series": "HLR-.YYYY.-.####",
+  "fields": [
+    {
+      "fieldname": "healer_name", "fieldtype": "Data", "label": "Healer Name",
+      "reqd": 1, "in_list_view": 1
+    },
+    {
+      "fieldname": "specialty", "fieldtype": "Select", "label": "Primary Specialty",
+      "options": "\nYoga Instructor\nMeditation Guide\nTraditional Medicine (Đông Y)\nTherapist / Counselor\nSpa Therapist\nNutritionist\nChef (Wellness Cuisine)\nFitness Coach\nSound Healer\nArt Therapist\nNature Guide\nBreathwork Facilitator",
+      "reqd": 1, "in_list_view": 1, "in_standard_filter": 1
+    },
+    {
+      "fieldname": "column_break_1", "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "status", "fieldtype": "Select", "label": "Status",
+      "options": "Active\nInactive\nPending Approval",
+      "default": "Pending Approval", "in_list_view": 1
+    },
+    {
+      "fieldname": "trust_verified", "fieldtype": "Check", "label": "Trust Verified"
+    },
+    {
+      "fieldname": "section_profile", "fieldtype": "Section Break", "label": "Profile"
+    },
+    {
+      "fieldname": "bio", "fieldtype": "Text Editor", "label": "Bio"
+    },
+    {
+      "fieldname": "experience_years", "fieldtype": "Int", "label": "Years of Experience"
+    },
+    {
+      "fieldname": "credentials", "fieldtype": "Small Text", "label": "Credentials / Certifications"
+    },
+    {
+      "fieldname": "photo", "fieldtype": "Attach Image", "label": "Photo"
+    },
+    {
+      "fieldname": "section_contact", "fieldtype": "Section Break", "label": "Contact"
+    },
+    {
+      "fieldname": "email", "fieldtype": "Data", "label": "Email", "options": "Email"
+    },
+    {
+      "fieldname": "phone", "fieldtype": "Phone", "label": "Phone"
+    },
+    {
+      "fieldname": "province", "fieldtype": "Link", "label": "Province", "options": "Territory"
+    },
+    {
+      "fieldname": "column_break_contact", "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "supplier", "fieldtype": "Link", "label": "Linked Supplier (ERPNext)", "options": "Supplier"
+    },
+    {
+      "fieldname": "employee", "fieldtype": "Link", "label": "Linked Employee", "options": "Employee"
+    },
+    {
+      "fieldname": "section_pricing", "fieldtype": "Section Break", "label": "Pricing"
+    },
+    {
+      "fieldname": "daily_rate", "fieldtype": "Currency", "label": "Daily Rate", "options": "currency"
+    },
+    {
+      "fieldname": "session_rate", "fieldtype": "Currency", "label": "Per Session Rate", "options": "currency"
+    },
+    {
+      "fieldname": "currency", "fieldtype": "Link", "label": "Currency", "options": "Currency", "default": "USD"
+    },
+    {
+      "fieldname": "max_daily_sessions", "fieldtype": "Int", "label": "Max Daily Sessions", "default": 3
+    },
+    {
+      "fieldname": "section_specialties", "fieldtype": "Section Break", "label": "Sub-specialties & Languages"
+    },
+    {
+      "fieldname": "sub_specialties", "fieldtype": "Table", "label": "Sub-specialties", "options": "Healer Sub Specialty"
+    },
+    {
+      "fieldname": "languages", "fieldtype": "Table", "label": "Languages", "options": "Healer Language"
+    },
+    {
+      "fieldname": "section_retreats", "fieldtype": "Section Break", "label": "Linked Retreats"
+    },
+    {
+      "fieldname": "linked_retreats", "fieldtype": "Table", "label": "Retreats", "options": "Healer Retreat Link"
+    },
+    {
+      "fieldname": "section_ratings", "fieldtype": "Section Break", "label": "Ratings"
+    },
+    {
+      "fieldname": "average_rating", "fieldtype": "Rating", "label": "Average Rating", "read_only": 1
+    },
+    {
+      "fieldname": "total_reviews", "fieldtype": "Int", "label": "Total Reviews", "read_only": 1
+    },
+    {
+      "fieldname": "reviews", "fieldtype": "Table", "label": "Reviews", "options": "Healer Review"
+    }
+  ],
+  "permissions": [
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+    {"role": "Retreat Manager", "read": 1, "write": 1, "create": 1},
+    {"role": "Guest", "read": 1}
+  ]
+}

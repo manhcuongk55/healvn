@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealVN — Vietnam's Healing Tourism Platform</title>
+  <meta name="description" content="Nền tảng du lịch chữa lành hàng đầu Việt Nam. Khám phá retreat thiên nhiên, wellness journey cá nhân hóa bởi AI, và cộng đồng chữa lành xác thực." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+</head>
+<body>
+
+<!-- Background orbs -->
+<div class="bg-orbs">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Heal<span>VN</span></a>
+  <div class="nav-links">
+    <a href="index.html">Trang Chủ</a>
+    <a href="pages/retreats.html">Retreats</a>
+    <a href="pages/ai-advisor.html">AI Advisor</a>
+    <a href="pages/about.html">Về Chúng Tôi</a>
+    <a href="pages/pitch-deck.html" style="color:var(--clr-gold);font-weight:700;">📊 Pitch Deck</a>
+  </div>
+  <a href="pages/retreats.html" class="nav-cta">Bắt Đầu Hành Trình ✨</a>
+  <button class="hamburger" id="hamburger">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Trang Chủ</a>
+  <a href="pages/retreats.html">Retreats</a>
+  <a href="pages/ai-advisor.html">AI Advisor</a>
+  <a href="pages/about.html">Về Chúng Tôi</a>
+  <a href="pages/pitch-deck.html" style="color: var(--clr-gold); font-weight: 700;">📊 Pitch Deck</a>
+  <a href="pages/retreats.html" style="color: var(--clr-jade); font-weight: 700;">Bắt Đầu Ngay →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content fade-up">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Vietnam's #1 Wellness Platform</span>
+      </div>
+      <h1>
+        Chữa Lành<br/>
+        <span class="grad-jade">Tâm Hồn</span> Giữa<br/>
+        Thiên Nhiên Việt
+      </h1>
+      <p class="hero-sub">
+        AI cá nhân hóa hành trình wellness của bạn. Từ vịnh Ha Long thơ mộng đến rừng núi Sapa hùng vĩ — HealVN kết nối bạn với 1,200+ retreat xác thực.
+      </p>
+      <div class="hero-actions">
+        <a href="pages/ai-advisor.html" class="btn-primary">🤖 Bắt Đầu với AI Advisor</a>
+        <a href="pages/retreats.html" class="btn-outline">🗺️ Khám Phá Retreats</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num grad-jade" data-counter="1247" data-suffix="+">0+</div>
+          <div class="hero-stat-lbl">Retreat Verified</div>
+        </div>
+        <div>
+          <div class="hero-stat-num grad-gold" data-counter="48" data-suffix="K+">0K+</div>
+          <div class="hero-stat-lbl">Khách Hài Lòng</div>
+        </div>
+        <div>
+          <div class="hero-stat-num" style="font-size:1.8rem;font-weight:800">63</div>
+          <div class="hero-stat-lbl">Tỉnh Thành</div>
+        </div>
+        <div>
+          <div class="hero-stat-num grad-jade" data-counter="4.9" data-suffix="⭐">0</div>
+          <div class="hero-stat-lbl">Đánh Giá TB</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO DISCOVERY FEED -->
+<section id="discover" style="padding-top: 0;">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">🎥 Khám Phá</div>
+      <h2 class="section-title">Wellness <span class="grad-jade">Feed</span></h2>
+      <p class="section-sub">Video ngắn từ cộng đồng — trải nghiệm thật, cảm xúc thật.</p>
+      <div class="pill-nav">
+        <div class="pill-nav-item active" data-target="all">Tất Cả</div>
+        <div class="pill-nav-item" data-target="bien">🌊 Biển</div>
+        <div class="pill-nav-item" data-target="nui">🏔️ Núi</div>
+        <div class="pill-nav-item" data-target="spa">💆 Spa</div>
+        <div class="pill-nav-item" data-target="yoga">🧘 Yoga</div>
+        <div class="pill-nav-item" data-target="detox">🌿 Detox</div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap:16px;">
+      <!-- Feed card 1 -->
+      <div class="feed-card fade-up" data-category="bien">
+        <div class="feed-thumb">
+          <div class="feed-thumb-inner" style="background: linear-gradient(160deg,#0d2b3e,#0d4d3a);">
+            <div style="text-align:center">
+              <div style="font-size:3.5rem">🌊</div>
+              <div style="font-size:0.75rem; color:rgba(255,255,255,0.6); margin-top:8px">Phú Quốc Sunrise</div>
+            </div>
+          </div>
+          <div class="feed-overlay">
+            <div class="badge badge-jade" style="font-size:0.65rem">🔴 LIVE</div>
+          </div>
+        </div>
+        <div class="feed-info">
+          <div class="feed-loc">📍 Phú Quốc, Kiên Giang</div>
+          <div class="feed-title">Yoga bình minh trên bãi biển</div>
+          <div class="feed-meta">
+            <span>❤️ 2.4K</span>
+            <span>💬 183</span>
+            <span>▶ 12K</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feed card 2 -->
+      <div class="feed-card fade-up" data-category="nui" style="transition-delay:0.1s">
+        <div class="feed-thumb">
+          <div class="feed-thumb-inner" style="background: linear-gradient(160deg,#1a2a1a,#2d4a2d);">
+            <div style="text-align:center">
+              <div style="font-size:3.5rem">🏔️</div>
+              <div style="font-size:0.75rem; color:rgba(255,255,255,0.6); margin-top:8px">Sapa Trek</div>
+            </div>
+          </div>
+          <div class="feed-overlay">
+            <span class="badge badge-gold" style="font-size:0.65rem">✨ TOP</span>
+          </div>
+        </div>
+        <div class="feed-info">
+          <div class="feed-loc">📍 Sa Pa, Lào Cai</div>
+          <div class="feed-title">Forest bathing sáng sớm mùa thu</div>
+          <div class="feed-meta">
+            <span>❤️ 5.1K</span>
+            <span>💬 421</span>
+            <span>▶ 38K</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feed card 3 -->
+      <div class="feed-card fade-up" data-category="spa" style="transition-delay:0.2s">
+        <div class="feed-thumb">
+          <div class="feed-thumb-inner" style="background: linear-gradient(160deg,#2d1a2a,#4a2d3a);">
+            <div style="text-align:center">
+              <div style="font-size:3.5rem">💆</div>
+              <div style="font-size:0.75rem; color:rgba(255,255,255,0.6); margin-top:8px">Hội An Spa</div>
+            </div>
+          </div>
+          <div class="feed-overlay">
+            <span class="badge badge-rose" style="font-size:0.65rem">🌸 VIRAL</span>
+          </div>
+        </div>
+        <div class="feed-info">
+          <div class="feed-loc">📍 Hội An, Quảng Nam</div>
+          <div class="feed-title">Liệu pháp đá nóng Đông y 100%</div>
+          <div class="feed-meta">
+            <span>❤️ 8.7K</span>
+            <span>💬 654</span>
+            <span>▶ 91K</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feed card 4 -->
+      <div class="feed-card fade-up" data-category="detox" style="transition-delay:0.3s">
+        <div class="feed-thumb">
+          <div class="feed-thumb-inner" style="background: linear-gradient(160deg,#1a2b1a,#3a5a32);">
+            <div style="text-align:center">
+              <div style="font-size:3.5rem">🌿</div>
+              <div style="font-size:0.75rem; color:rgba(255,255,255,0.6); margin-top:8px">Detox Retreat</div>
+            </div>
+          </div>
+        </div>
+        <div class="feed-info">
+          <div class="feed-loc">📍 Đà Lạt, Lâm Đồng</div>
+          <div class="feed-title">7 ngày detox trà xanh Tây Nguyên</div>
+          <div class="feed-meta">
+            <span>❤️ 3.2K</span>
+            <span>💬 298</span>
+            <span>▶ 21K</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feed card 5 -->
+      <div class="feed-card fade-up" data-category="yoga" style="transition-delay:0.4s">
+        <div class="feed-thumb">
+          <div class="feed-thumb-inner" style="background: linear-gradient(160deg,#2a2010,#4a3c1a);">
+            <div style="text-align:center">
+              <div style="font-size:3.5rem">🧘</div>
+              <div style="font-size:0.75rem; color:rgba(255,255,255,0.6); margin-top:8px">Mũi Né Yoga</div>
+            </div>
+          </div>
+          <div class="feed-overlay">
+            <span class="badge badge-sky" style="font-size:0.65rem">🌅 NEW</span>
+          </div>
+        </div>
+        <div class="feed-info">
+          <div class="feed-loc">📍 Mũi Né, Bình Thuận</div>
+          <div class="feed-title">Sunset yoga kết hợp thiền Vipassana</div>
+          <div class="feed-meta">
+            <span>❤️ 1.9K</span>
+            <span>💬 145</span>
+            <span>▶ 15K</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI ADVISOR TEASER -->
+<section id="ai" style="background: linear-gradient(135deg, rgba(62,207,142,0.05), rgba(45,212,191,0.03));">
+  <div class="container">
+    <div class="grid-2" style="align-items: center; gap: 64px;">
+      <div class="fade-up">
+        <div class="section-label">🤖 AI Wellness Advisor</div>
+        <h2 class="section-title">AI Hiểu <span class="grad-jade">Tâm Hồn</span> Bạn</h2>
+        <p class="section-sub">
+          Không chỉ đặt phòng — AI của chúng tôi phân tích trạng thái tâm lý, thể chất, và tài chính của bạn để tạo ra hành trình wellness hoàn toàn cá nhân.
+        </p>
+        <div style="display:flex; flex-direction:column; gap:16px; margin-bottom:32px">
+          <div style="display:flex; align-items:flex-start; gap:14px">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(62,207,142,0.12);border:1px solid rgba(62,207,142,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem">🧠</div>
+            <div>
+              <div style="font-weight:700;margin-bottom:4px">Phân Tích Tâm Lý</div>
+              <div style="font-size:0.88rem;color:var(--clr-muted)">AI đánh giá stress level, sleep quality, và emotional state của bạn</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:14px">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(232,201,122,0.12);border:1px solid rgba(232,201,122,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem">🗺️</div>
+            <div>
+              <div style="font-weight:700;margin-bottom:4px">Journey Builder</div>
+              <div style="font-size:0.88rem;color:var(--clr-muted)">Tạo lịch trình chi tiết từng giờ, kết hợp retreat + ẩm thực + văn hóa</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:14px">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(122,184,232,0.12);border:1px solid rgba(122,184,232,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem">✅</div>
+            <div>
+              <div style="font-weight:700;margin-bottom:4px">Trust Verified</div>
+              <div style="font-size:0.88rem;color:var(--clr-muted)">Mọi retreat đều qua 7 lớp xác minh — không lo lừa đảo, không phantom listing</div>
+            </div>
+          </div>
+        </div>
+        <a href="pages/ai-advisor.html" class="btn-primary">Thử AI Advisor Ngay 🚀</a>
+      </div>
+
+      <!-- Mini chat preview -->
+      <div class="fade-up" style="transition-delay:0.2s">
+        <div class="ai-chat-wrap">
+          <div class="ai-chat-header">
+            <div class="ai-avatar">🌿</div>
+            <div>
+              <div style="font-weight:700;font-size:0.95rem">Hana — AI Wellness Advisor</div>
+              <div class="ai-status">• Đang trực tuyến</div>
+            </div>
+          </div>
+          <div class="ai-messages" id="chatMessages">
+            <div class="msg bot">
+              <div class="ai-avatar" style="width:32px;height:32px;font-size:0.9rem">🌿</div>
+              <div class="msg-bubble">Xin chào! Mình là Hana 🌿 AI Wellness Advisor của bạn. Bạn đang cảm thấy thế nào hôm nay? Mình sẽ tìm retreat hoàn hảo cho bạn!</div>
+            </div>
+            <div class="msg bot">
+              <div class="ai-avatar" style="width:32px;height:32px;font-size:0.9rem">🌿</div>
+              <div class="msg-bubble">Hỏi mình về: <strong>Phú Quốc, Hà Giang, Đà Lạt</strong>, hoặc ngân sách của bạn nhé! 💚</div>
+            </div>
+          </div>
+          <div class="ai-input-row">
+            <input class="ai-input" id="chatInput" placeholder="Nhập câu hỏi về retreat..." />
+            <button class="ai-send" id="sendBtn">➤</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED RETREATS -->
+<section id="retreats">
+  <div class="container">
+    <div class="fade-up" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; flex-wrap:wrap; gap:20px">
+      <div>
+        <div class="section-label">🛖 Retreat Nổi Bật</div>
+        <h2 class="section-title">Hành Trình <span class="grad-gold">Chữa Lành</span></h2>
+      </div>
+      <a href="pages/retreats.html" class="btn-outline">Xem Tất Cả →</a>
+    </div>
+    <div class="grid-3">
+      <div class="retreat-card fade-up">
+        <div class="retreat-thumb" style="background: linear-gradient(135deg,#0d3b2e,#1a6b4a)">🌊</div>
+        <div class="retreat-body">
+          <div class="retreat-name">Six Senses Côn Đảo</div>
+          <div class="retreat-loc">📍 Côn Đảo, Bà Rịa–Vũng Tàu</div>
+          <div class="retreat-tags">
+            <span class="retreat-tag">Luxury</span>
+            <span class="retreat-tag">Ocean View</span>
+            <span class="retreat-tag">Spa</span>
+          </div>
+          <div class="retreat-footer">
+            <div>
+              <div class="retreat-price">$3,200 <span>/ 7 ngày</span></div>
+              <div class="retreat-stars">★★★★★ 4.9</div>
+            </div>
+            <a href="pages/retreats.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem">Book →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="retreat-card fade-up" style="transition-delay:0.1s">
+        <div class="retreat-thumb" style="background: linear-gradient(135deg,#1a2a10,#2d4a1a)">🏔️</div>
+        <div class="retreat-body">
+          <div class="retreat-name">Topas Ecolodge Sapa</div>
+          <div class="retreat-loc">📍 Sa Pa, Lào Cai</div>
+          <div class="retreat-tags">
+            <span class="retreat-tag">Eco</span>
+            <span class="retreat-tag">Trekking</span>
+            <span class="retreat-tag">Culture</span>
+          </div>
+          <div class="retreat-footer">
+            <div>
+              <div class="retreat-price">$890 <span>/ 5 ngày</span></div>
+              <div class="retreat-stars">★★★★★ 4.8</div>
+            </div>
+            <a href="pages/retreats.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem">Book →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="retreat-card fade-up" style="transition-delay:0.2s">
+        <div class="retreat-thumb" style="background: linear-gradient(135deg,#2a1a30,#4a2a5a)">🌸</div>
+        <div class="retreat-body">
+          <div class="retreat-name">Hội An Herb Garden</div>
+          <div class="retreat-loc">📍 Hội An, Quảng Nam</div>
+          <div class="retreat-tags">
+            <span class="retreat-tag">Yoga</span>
+            <span class="retreat-tag">Detox</span>
+            <span class="retreat-tag">Traditional</span>
+          </div>
+          <div class="retreat-footer">
+            <div>
+              <div class="retreat-price">$650 <span>/ 5 ngày</span></div>
+              <div class="retreat-stars">★★★★½ 4.7</div>
+            </div>
+            <a href="pages/retreats.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem">Book →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HEALVN -->
+<section id="why" style="background: rgba(255,255,255,0.02);">
+  <div class="container">
+    <div class="fade-up" style="text-align:center; max-width:640px; margin:0 auto 56px">
+      <div class="section-label">💡 Tại Sao HealVN</div>
+      <h2 class="section-title">Nền Tảng <span class="grad-jade">Tin Cậy</span> Nhất</h2>
+      <p class="section-sub" style="margin: 0 auto">We ride the 3 biggest internet waves: <strong>Short Video + Lifestyle Discovery + AI Decision.</strong></p>
+    </div>
+    <div class="grid-4">
+      <div class="glass fade-up" style="padding:28px">
+        <div class="feature-icon-wrap">🤖</div>
+        <div style="font-weight:700;margin-bottom:8px">AI Cá Nhân Hóa</div>
+        <div style="font-size:0.85rem;color:var(--clr-muted)">AI phân tích 50+ điểm dữ liệu để tạo hành trình wellness riêng cho bạn, không phải template chung</div>
+      </div>
+      <div class="glass fade-up" style="padding:28px;transition-delay:0.1s">
+        <div class="feature-icon-wrap" style="background:rgba(232,201,122,0.1);border-color:rgba(232,201,122,0.2)">✅</div>
+        <div style="font-weight:700;margin-bottom:8px">7 Lớp Xác Minh</div>
+        <div style="font-size:0.85rem;color:var(--clr-muted)">Mỗi retreat qua kiểm tra pháp lý, chất lượng, và review thật — không có listing ảo</div>
+      </div>
+      <div class="glass fade-up" style="padding:28px;transition-delay:0.2s">
+        <div class="feature-icon-wrap" style="background:rgba(122,184,232,0.1);border-color:rgba(122,184,232,0.2)">🎥</div>
+        <div style="font-weight:700;margin-bottom:8px">Video Feed</div>
+        <div style="font-size:0.85rem;color:var(--clr-muted)">Khám phá retreat qua short video xác thực từ cộng đồng — như TikTok nhưng chỉ cho wellness</div>
+      </div>
+      <div class="glass fade-up" style="padding:28px;transition-delay:0.3s">
+        <div class="feature-icon-wrap" style="background:rgba(232,122,159,0.1);border-color:rgba(232,122,159,0.2)">🌿</div>
+        <div style="font-weight:700;margin-bottom:8px">Locally Rooted</div>
+        <div style="font-size:0.85rem;color:var(--clr-muted)">Kết nối trực tiếp với healer địa phương, bác sĩ Đông y, và chef ẩm thực bản địa</div>
+      </div>
+    </div>
+
+    <!-- Market stats -->
+    <div style="margin-top:48px" class="fade-up">
+      <div class="glass" style="padding:40px">
+        <div style="text-align:center;margin-bottom:32px">
+          <div class="section-label">📊 Thị Trường</div>
+          <h3 style="font-size:1.5rem;font-weight:700">Vietnam Tourism: <span class="grad-jade">$50–70B</span> vào 2030</h3>
+        </div>
+        <div class="grid-4" style="text-align:center">
+          <div>
+            <div class="stat-box-num grad-jade" data-counter="919" data-suffix="B$">0</div>
+            <div class="stat-box-lbl">Global Wellness Market</div>
+          </div>
+          <div>
+            <div class="stat-box-num grad-gold" data-counter="70" data-suffix="B$">0</div>
+            <div class="stat-box-lbl">VN Tourism Target 2030</div>
+          </div>
+          <div>
+            <div class="stat-box-num" data-counter="10" data-suffix="%/yr">0</div>
+            <div class="stat-box-lbl">Wellness Growth Rate</div>
+          </div>
+          <div>
+            <div class="stat-box-num grad-jade" data-counter="18" data-suffix="M+">0</div>
+            <div class="stat-box-lbl">Inbound Tourists/Year</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;max-width:560px;margin:0 auto 48px">
+      <div class="section-label">💬 Cộng Đồng</div>
+      <h2 class="section-title">Họ Đã <span class="grad-jade">Chữa Lành</span></h2>
+    </div>
+    <div class="grid-3">
+      <div class="glass testimonial-card fade-up">
+        <div style="color:var(--clr-gold);margin-bottom:12px">★★★★★</div>
+        <div class="test-quote">"Hana AI đề xuất chính xác những gì mình cần. 7 ngày ở Phú Quốc — mình về như người mới. HealVN thực sự hiểu tôi."</div>
+        <div class="test-author">
+          <div class="test-avatar">👩</div>
+          <div>
+            <div class="test-name">Nguyễn Minh Thư</div>
+            <div class="test-loc">📍 TP. Hồ Chí Minh</div>
+          </div>
+        </div>
+      </div>
+      <div class="glass testimonial-card fade-up" style="transition-delay:0.1s">
+        <div style="color:var(--clr-gold);margin-bottom:12px">★★★★★</div>
+        <div class="test-quote">"Là người nước ngoài, mình sợ bị lừa. Nhưng HealVN có 7-layer verification — mọi thứ đều đúng như mô tả. Sapa Eco Lodge tuyệt vời!"</div>
+        <div class="test-author">
+          <div class="test-avatar">👨</div>
+          <div>
+            <div class="test-name">James Whitfield</div>
+            <div class="test-loc">📍 London, UK</div>
+          </div>
+        </div>
+      </div>
+      <div class="glass testimonial-card fade-up" style="transition-delay:0.2s">
+        <div style="color:var(--clr-gold);margin-bottom:12px">★★★★★</div>
+        <div class="test-quote">"Short video feed của HealVN như TikTok nhưng cho wellness — tôi đã booking retreat Hội An chỉ sau 5 phút lướt feed. Không thể tin được!"</div>
+        <div class="test-author">
+          <div class="test-avatar">👩</div>
+          <div>
+            <div class="test-name">Sarah Kim</div>
+            <div class="test-loc">📍 Seoul, Korea</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="glass fade-up" style="padding:80px 60px; text-align:center; background: linear-gradient(135deg, rgba(62,207,142,0.08), rgba(45,212,191,0.04)); border-color: rgba(62,207,142,0.2);">
+      <div class="section-label" style="justify-content:center">🚀 Bắt Đầu Ngay</div>
+      <h2 class="section-title" style="max-width:600px;margin:0 auto 20px">Hành Trình Chữa Lành Của Bạn Bắt Đầu <span class="grad-jade">Hôm Nay</span></h2>
+      <p style="color:var(--clr-muted);margin-bottom:40px;font-size:1.05rem">AI Advisor miễn phí · Không cần thẻ tín dụng · Hủy bất kỳ lúc nào</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="pages/ai-advisor.html" class="btn-primary" style="font-size:1rem;padding:16px 40px">🤖 Nói Chuyện với Hana AI</a>
+        <a href="pages/retreats.html" class="btn-outline" style="font-size:1rem;padding:16px 40px">🗺️ Duyệt Retreats</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="nav-logo" style="font-size:1.8rem">Heal<span style="font-style:italic">VN</span></div>
+        <p class="footer-brand-desc">Nền tảng du lịch chữa lành hàng đầu Việt Nam. Kết nối AI — Thiên nhiên — Con người.</p>
+        <div style="margin-top:20px; display:flex; gap:12px;">
+          <span style="width:36px;height:36px;border-radius:50%;background:var(--clr-surface);border:1px solid var(--clr-border);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer">📱</span>
+          <span style="width:36px;height:36px;border-radius:50%;background:var(--clr-surface);border:1px solid var(--clr-border);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer">🎬</span>
+          <span style="width:36px;height:36px;border-radius:50%;background:var(--clr-surface);border:1px solid var(--clr-border);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer">💬</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Nền Tảng</div>
+        <div class="footer-links">
+          <a href="pages/retreats.html">Retreat Marketplace</a>
+          <a href="pages/ai-advisor.html">AI Wellness Advisor</a>
+          <a href="#">Video Feed</a>
+          <a href="#">Wellness Blog</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Điểm Đến</div>
+        <div class="footer-links">
+          <a href="#">Phú Quốc</a>
+          <a href="#">Sa Pa</a>
+          <a href="#">Hội An</a>
+          <a href="#">Đà Lạt</a>
+          <a href="#">Ha Long Bay</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Công Ty</div>
+        <div class="footer-links">
+          <a href="pages/about.html">Về Chúng Tôi</a>
+          <a href="#">Careers</a>
+          <a href="#">Blog</a>
+          <a href="#">Đối Tác</a>
+          <a href="#">Liên Hệ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 HealVN. All rights reserved. 🌿</div>
+      <div>Privacy · Terms · Cookies</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

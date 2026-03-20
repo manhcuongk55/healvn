@@ -1,0 +1,37 @@
+{
+  "name": "Retreat Expense",
+  "module": "HealVN",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "is_submittable": 1,
+  "track_changes": 1,
+  "title_field": "description",
+  "autoname": "naming_series:",
+  "naming_series": "EXP-.YYYY.-.#####",
+  "fields": [
+    {"fieldname": "retreat", "fieldtype": "Link", "label": "Retreat", "options": "Retreat", "in_standard_filter": 1},
+    {"fieldname": "expense_type", "fieldtype": "Select", "label": "Expense Type",
+     "options": "\nHealer Payment\nPartner Payout\nSupplies\nMarketing\nMaintenance\nContent Production\nInspection\nTechnology\nOther",
+     "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+    {"fieldname": "expense_date", "fieldtype": "Date", "label": "Date", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "amount", "fieldtype": "Currency", "label": "Amount", "reqd": 1, "in_list_view": 1, "options": "currency"},
+    {"fieldname": "currency", "fieldtype": "Link", "label": "Currency", "options": "Currency", "default": "VND"},
+    {"fieldname": "section_details", "fieldtype": "Section Break", "label": "Details"},
+    {"fieldname": "description", "fieldtype": "Data", "label": "Description", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "vendor", "fieldtype": "Link", "label": "Vendor/Supplier", "options": "Supplier"},
+    {"fieldname": "healer", "fieldtype": "Link", "label": "Healer", "options": "Healer"},
+    {"fieldname": "column_break_det", "fieldtype": "Column Break"},
+    {"fieldname": "receipt", "fieldtype": "Attach", "label": "Receipt / Invoice"},
+    {"fieldname": "journal_entry", "fieldtype": "Link", "label": "Journal Entry", "options": "Journal Entry", "read_only": 1},
+    {"fieldname": "section_approval", "fieldtype": "Section Break", "label": "Approval"},
+    {"fieldname": "approved_by", "fieldtype": "Link", "label": "Approved By", "options": "User"},
+    {"fieldname": "notes", "fieldtype": "Small Text", "label": "Notes"},
+    {"fieldname": "amended_from", "fieldtype": "Link", "label": "Amended From", "options": "Retreat Expense", "read_only": 1}
+  ],
+  "permissions": [
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 1, "cancel": 1, "amend": 1},
+    {"role": "Retreat Manager", "read": 1, "write": 1, "create": 1, "submit": 1},
+    {"role": "Accounts User", "read": 1, "write": 1, "submit": 1, "cancel": 1}
+  ]
+}
